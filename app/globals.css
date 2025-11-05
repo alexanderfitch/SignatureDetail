@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 10, 10, 10;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: #000;
+}
+
+/* Carbon fiber background class that can be applied to specific pages */
+.carbon-fiber-bg {
+  background-image: url("/images/carbon-fibre-hero.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sora;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+
+  p {
+    @apply font-dm-sans;
+  }
+
+  .container {
+    @apply px-4 md:px-6 mx-auto max-w-7xl;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 shadow-lg hover:shadow-red-600/20;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-black hover:bg-gray-100 shadow-lg;
+  }
+
+  .btn-outline {
+    @apply border-2 border-white text-white hover:bg-white hover:text-black;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-20 lg:py-24;
+  }
+
+  .card {
+    @apply bg-zinc-900 rounded-2xl p-6 shadow-xl;
+  }
+
+  .content-box {
+    @apply bg-zinc-900/90 backdrop-blur-sm rounded-xl p-6 shadow-xl;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e11d48;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #be123c;
+}
+
+/* Animation classes */
+.fade-in {
+  @apply opacity-0 animate-[fadeIn_0.5s_ease-in-out_forwards];
+}
+
+.slide-up {
+  @apply opacity-0 translate-y-10 animate-[slideUp_0.5s_ease-in-out_forwards];
+}
+
+.slide-in-right {
+  @apply opacity-0 translate-x-10 animate-[slideInRight_0.5s_ease-in-out_forwards];
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
