@@ -45,7 +45,7 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="text-2xl font-sora font-bold"
+            className="text-2xl font-bold"
           >
             <span className="text-brand-red">DETAIL</span>OMAHA
           </motion.div>

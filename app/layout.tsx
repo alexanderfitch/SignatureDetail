@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, DM_Sans, Sora } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -10,8 +10,6 @@ import IOSInstallPopup from "@/components/ios-install-popup"
 import ScrollToTop from "@/components/scroll-to-top"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" })
-const sora = Sora({ subsets: ["latin"], variable: "--font-sora" })
 
 export const metadata: Metadata = {
   title: "Detail Omaha | Premium Mobile Auto Detailing Services",
@@ -45,7 +43,7 @@ export const metadata: Metadata = {
     description:
       "Mobile auto detailing services in Omaha. Professional interior and exterior detailing, headlight restoration, and more. We come to you!",
   },
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -55,7 +53,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${dmSans.variable} ${sora.variable} font-sans text-white`}>
+      <body className={`${inter.variable} font-sans text-white`}>
         <ScrollToTop />
         <Header />
         <main>{children}</main>
