@@ -27,7 +27,7 @@ const testimonials = [
     vehicle: "",
     image: "/images/gallery/interior-2.webp",
     quote:
-      "Travelled to me, took lots of time on small stains and grime in my car, deeply cared about the small details, and they were super easy to work with!! I recommend Detail Omaha for any detailing needs!",
+      "Travelled to me, took lots of time on small stains and grime in my car, deeply cared about the small details, and they were super easy to work with!! I recommend Signature Auto Detailing for any detailing needs!",
     rating: 5,
   },
   {
@@ -35,7 +35,7 @@ const testimonials = [
     vehicle: "Family Vehicles",
     image: "/images/gallery/interior-3.webp",
     quote:
-      "We used Detail Omaha for both my car and my husband's car. The boys worked extremely hard and in the end you wouldn't even know that we have two young children and two dogs who ride in the cars all the time! The convenience of them coming to our house was a huge bonus. We will definitely use them again!",
+      "We used Signature Auto Detailing for both my car and my husband's car. The boys worked extremely hard and in the end you wouldn't even know that we have two young children and two dogs who ride in the cars all the time! The convenience of them coming to our house was a huge bonus. We will definitely use them again!",
     rating: 5,
   },
 ]
@@ -57,12 +57,12 @@ export default function Testimonials() {
     return Array(5)
       .fill(0)
       .map((_, i) => (
-        <Star key={i} className={`h-5 w-5 ${i < rating ? "text-yellow-500 fill-yellow-500" : "text-gray-400"}`} />
+        <Star key={i} className={`h-5 w-5 ${i < rating ? "text-yellow-500 fill-yellow-500" : "text-slate-300"}`} />
       ))
   }
 
   return (
-    <section className="py-16 md:py-24 bg-zinc-900" ref={ref}>
+    <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ export default function Testimonials() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Don't just take our word for it. Here's what our satisfied customers have to say about our detailing
             services.
           </p>
@@ -84,7 +84,7 @@ export default function Testimonials() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative"
           >
-            <div className="bg-zinc-800 rounded-2xl p-8 md:p-12 shadow-xl">
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
                 <div className="flex-shrink-0">
                   <div className="relative h-20 w-20 md:h-32 md:w-32 rounded-xl overflow-hidden">
@@ -103,7 +103,7 @@ export default function Testimonials() {
                   <blockquote className="text-xl md:text-2xl italic mb-4">"{testimonials[current].quote}"</blockquote>
                   <div>
                     <p className="font-bold text-lg">{testimonials[current].name}</p>
-                    {testimonials[current].vehicle && <p className="text-gray-400">{testimonials[current].vehicle}</p>}
+                    {testimonials[current].vehicle && <p className="text-slate-500">{testimonials[current].vehicle}</p>}
                   </div>
                 </div>
               </div>
@@ -124,7 +124,7 @@ export default function Testimonials() {
 
             <button
               onClick={prev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-zinc-800 rounded-full p-2 shadow-lg hover:bg-zinc-700 transition-colors"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white rounded-full p-2 shadow-lg hover:bg-slate-100 transition-colors border border-gray-200"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -132,7 +132,7 @@ export default function Testimonials() {
 
             <button
               onClick={next}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-zinc-800 rounded-full p-2 shadow-lg hover:bg-zinc-700 transition-colors"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white rounded-full p-2 shadow-lg hover:bg-slate-100 transition-colors border border-gray-200"
               aria-label="Next testimonial"
             >
               <ChevronRight className="h-6 w-6" />

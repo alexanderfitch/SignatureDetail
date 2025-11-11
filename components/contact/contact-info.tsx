@@ -10,8 +10,8 @@ export default function ContactInfo() {
           <MapPin className="h-6 w-6 text-brand-red mr-4 mt-1 flex-shrink-0" />
           <div>
             <h4 className="font-bold mb-1">Service Area</h4>
-            <p className="text-gray-300">Mobile Service - Omaha and Surrounding Areas</p>
-            <p className="text-gray-400 text-sm mt-1">We come to you! No need to leave your home or office.</p>
+            <p className="text-slate-600">Mobile Service - Omaha and Surrounding Areas</p>
+            <p className="text-slate-500 text-sm mt-1">We come to you! No need to leave your home or office.</p>
           </div>
         </div>
 
@@ -19,7 +19,7 @@ export default function ContactInfo() {
           <Phone className="h-6 w-6 text-brand-red mr-4 mt-1 flex-shrink-0" />
           <div>
             <h4 className="font-bold mb-1">Phone</h4>
-            <a href="tel:+14028504546" className="text-gray-300 hover:text-white transition-colors">
+            <a href="tel:+14028504546" className="text-slate-600 hover:text-brand-blue transition-colors">
               (402) 850-4546
             </a>
           </div>
@@ -29,7 +29,7 @@ export default function ContactInfo() {
           <Mail className="h-6 w-6 text-brand-red mr-4 mt-1 flex-shrink-0" />
           <div>
             <h4 className="font-bold mb-1">Email</h4>
-            <a href="mailto:detailomahaneb@gmail.com" className="text-gray-300 hover:text-white transition-colors">
+            <a href="mailto:detailomahaneb@gmail.com" className="text-slate-600 hover:text-brand-blue transition-colors">
               detailomahaneb@gmail.com
             </a>
           </div>
@@ -44,7 +44,7 @@ export default function ContactInfo() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
-            className="bg-zinc-800 hover:bg-zinc-700 p-3 rounded-full transition-colors"
+            className="bg-slate-100 hover:bg-slate-200 p-3 rounded-full transition-colors text-slate-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export default function ContactInfo() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="bg-zinc-800 hover:bg-zinc-700 p-3 rounded-full transition-colors"
+            className="bg-slate-100 hover:bg-slate-200 p-3 rounded-full transition-colors text-slate-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ export default function ContactInfo() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
-            className="bg-zinc-800 hover:bg-zinc-700 p-3 rounded-full transition-colors"
+            className="bg-slate-100 hover:bg-slate-200 p-3 rounded-full transition-colors text-slate-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

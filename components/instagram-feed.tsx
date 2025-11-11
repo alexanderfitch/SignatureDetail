@@ -153,7 +153,7 @@ export default function InstagramFeed() {
             className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors"
           >
             <Instagram className="h-5 w-5" />
-            <span className="font-medium">Follow @detailomaha on Instagram</span>
+            <span className="font-medium">Follow Signature Auto Detailing on Instagram</span>
           </Link>
         </motion.div>
 
@@ -163,7 +163,7 @@ export default function InstagramFeed() {
           </div>
         ) : error ? (
           <div className="text-center py-8">
-            <p className="text-gray-300">{error}</p>
+            <p className="text-slate-600">{error}</p>
             <Link
               href="https://instagram.com/detailomaha"
               target="_blank"
@@ -184,12 +184,12 @@ export default function InstagramFeed() {
               <motion.div
                 key={post.id}
                 variants={itemVariants}
-                className="bg-zinc-900 rounded-xl overflow-hidden shadow-xl"
+                className="bg-white rounded-xl overflow-hidden shadow-xl border border-gray-100"
               >
                 <div className="relative h-80">
                   <Image
                     src={post.media_url || "/placeholder.svg"}
-                    alt="Detail Omaha Instagram post"
+                    alt="Signature Auto Detailing Instagram post"
                     fill
                     className="object-cover"
                   />

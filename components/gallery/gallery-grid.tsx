@@ -19,7 +19,7 @@ const galleryImages = [
   {
     id: 1,
     src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_6168-YqVTV0K9Nx6FY0EzZ0hX2EdT2X5QTW.mp4", // Updated to the new MP4 file
-    alt: "Ceramic coating application on black SUV - Detail Omaha",
+    alt: "Ceramic coating application on black SUV - Signature Auto Detailing",
     category: "ceramic-coating",
     title: "Ceramic Coating",
     description:
@@ -30,7 +30,7 @@ const galleryImages = [
   {
     id: 2,
     src: "/images/gallery/ceramic-coating-new.jpeg",
-    alt: "Mirror finish ceramic coating on black vehicle - Detail Omaha",
+    alt: "Mirror finish ceramic coating on black vehicle - Signature Auto Detailing",
     category: "ceramic-coating",
     title: "Ceramic Coating",
     description:
@@ -40,7 +40,7 @@ const galleryImages = [
   {
     id: 3,
     src: "/images/gallery/ceramic-coating-3.webp",
-    alt: "Ceramic coating on red BMW sedan - Detail Omaha",
+    alt: "Ceramic coating on red BMW sedan - Signature Auto Detailing",
     category: "ceramic-coating",
     title: "Ceramic Coating",
     description: "High-gloss ceramic coating on a red BMW sedan, enhancing the vibrant color and providing protection.",
@@ -49,7 +49,7 @@ const galleryImages = [
   {
     id: 4,
     src: "/images/gallery/paint-correction-1.webp",
-    alt: "Paint correction on black Maserati - Detail Omaha",
+    alt: "Paint correction on black Maserati - Signature Auto Detailing",
     category: "paint-correction",
     title: "Paint Correction",
     description: "Professional paint correction on a black Maserati, removing swirl marks and enhancing the finish.",
@@ -58,7 +58,7 @@ const galleryImages = [
   {
     id: 5,
     src: "/images/gallery/paint-correction-2.webp",
-    alt: "Paint correction on Lexus SUV - Detail Omaha",
+    alt: "Paint correction on Lexus SUV - Signature Auto Detailing",
     category: "paint-correction",
     title: "Paint Correction",
     description: "Multi-stage paint correction on a Lexus SUV, restoring the original shine and color depth.",
@@ -67,7 +67,7 @@ const galleryImages = [
   {
     id: 6,
     src: "/images/gallery/paint-correction-3.webp",
-    alt: "Paint correction on matte black Land Rover Defender - Detail Omaha",
+    alt: "Paint correction on matte black Land Rover Defender - Signature Auto Detailing",
     category: "paint-correction",
     title: "Paint Correction",
     description: "Paint correction on a matte black Land Rover Defender, enhancing its unique finish.",
@@ -76,7 +76,7 @@ const galleryImages = [
   {
     id: 7,
     src: "/images/gallery/interior-1.webp",
-    alt: "Interior detailing of SUV rear seats - Detail Omaha",
+    alt: "Interior detailing of SUV rear seats - Signature Auto Detailing",
     category: "interior",
     title: "Interior Detailing",
     description:
@@ -86,7 +86,7 @@ const galleryImages = [
   {
     id: 8,
     src: "/images/gallery/interior-2.webp",
-    alt: "Interior detailing of luxury vehicle rear seats - Detail Omaha",
+    alt: "Interior detailing of luxury vehicle rear seats - Signature Auto Detailing",
     category: "interior",
     title: "Interior Detailing",
     description: "Detailed cleaning and conditioning of luxury vehicle interior, including seats and trim.",
@@ -95,7 +95,7 @@ const galleryImages = [
   {
     id: 9,
     src: "/images/gallery/interior-3.webp",
-    alt: "Interior detailing of Porsche - Detail Omaha",
+    alt: "Interior detailing of Porsche - Signature Auto Detailing",
     category: "interior",
     title: "Interior Detailing",
     description: "Deep cleaning of a Porsche interior, removing stains and restoring the cabin to pristine condition.",
@@ -104,7 +104,7 @@ const galleryImages = [
   {
     id: 10,
     src: "/images/gallery/exterior-1.webp",
-    alt: "Exterior detailing of red Tesla - Detail Omaha",
+    alt: "Exterior detailing of red Tesla - Signature Auto Detailing",
     category: "exterior",
     title: "Exterior Detailing",
     description: "Full exterior detail on a red Tesla, including clay bar treatment and paint sealant application.",
@@ -113,7 +113,7 @@ const galleryImages = [
   {
     id: 11,
     src: "/images/gallery/exterior-2.webp",
-    alt: "Exterior detailing of white Ford Bronco - Detail Omaha",
+    alt: "Exterior detailing of white Ford Bronco - Signature Auto Detailing",
     category: "exterior",
     title: "Exterior Detailing",
     description: "Mobile exterior detailing of a white Ford Bronco, including wheels, tires, and trim restoration.",
@@ -122,10 +122,10 @@ const galleryImages = [
   {
     id: 12,
     src: "/images/gallery/exterior-3.webp",
-    alt: "Exterior detailing of black Maserati SUV - Detail Omaha",
+    alt: "Exterior detailing of black Maserati SUV - Signature Auto Detailing",
     category: "exterior",
     title: "Exterior Detailing",
-    description: "Professional mobile detailing of a black Maserati SUV with Detail Omaha's signature service.",
+    description: "Professional mobile detailing of a black Maserati SUV with Signature Auto Detailing's signature service.",
     isVideo: false,
   },
 ]
@@ -234,7 +234,7 @@ export default function GalleryGrid() {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 activeCategory === category.id
                   ? "bg-brand-red text-white"
-                  : "bg-zinc-800 text-gray-300 hover:bg-zinc-700"
+                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
               }`}
             >
               {category.name}
@@ -286,7 +286,7 @@ export default function GalleryGrid() {
                       Your browser does not support the video tag.
                     </video>
 
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:opacity-0 transition-opacity">
+                    <div className="absolute inset-0 flex items-center justify-center bg-white/20 group-hover:opacity-0 transition-opacity">
                       <Play size={48} className="text-white opacity-80" />
                     </div>
                   </>
@@ -301,7 +301,7 @@ export default function GalleryGrid() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4">
                     <h3 className="text-lg font-bold">{image.title}</h3>
-                    <p className="text-sm text-gray-300">{image.description.substring(0, 60)}...</p>
+                    <p className="text-sm text-slate-600">{image.description.substring(0, 60)}...</p>
                   </div>
                 </div>
               </div>
@@ -311,17 +311,17 @@ export default function GalleryGrid() {
 
         {/* Modal for enlarged image view */}
         {selectedImage && (
-          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
             <div className="relative max-w-4xl w-full">
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+                className="absolute -top-12 right-0 text-white hover:text-slate-200 transition-colors"
                 aria-label="Close modal"
               >
                 <X size={24} />
               </button>
 
-              <div className="bg-zinc-900 rounded-xl overflow-hidden">
+              <div className="bg-white rounded-xl overflow-hidden shadow-2xl">
                 <div className="relative h-[60vh]">
                   {selectedImage.isVideo ? (
                     videoError[selectedImage.id] ? (
@@ -358,7 +358,7 @@ export default function GalleryGrid() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2">{selectedImage.title}</h3>
-                  <p className="text-gray-300">{selectedImage.description}</p>
+                  <p className="text-slate-600">{selectedImage.description}</p>
                 </div>
               </div>
             </div>

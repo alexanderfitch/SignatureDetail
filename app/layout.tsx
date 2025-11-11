@@ -12,11 +12,11 @@ import ScrollToTop from "@/components/scroll-to-top"
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 export const metadata: Metadata = {
-  title: "Detail Omaha | Premium Mobile Auto Detailing Services",
+  title: "Signature Auto Detailing | Premium Mobile Auto Detailing Services | Perfection is our Signature",
   description:
-    "Mobile auto detailing services in Omaha. Professional interior and exterior detailing, headlight restoration, and more. We come to you!",
+    "Signature Auto Detailing - Perfection is our Signature. Mobile auto detailing services in Omaha. Professional interior and exterior detailing, paint correction, ceramic coating, headlight restoration, and more. We come to you!",
   keywords:
-    "car detailing Omaha, mobile auto detailing, interior detailing, exterior detailing, headlight restoration, clay bar treatment, paint correction, Omaha",
+    "car detailing Omaha, mobile auto detailing, interior detailing, exterior detailing, paint correction, ceramic coating, headlight restoration, clay bar treatment, Signature Auto Detailing, Omaha",
   robots: "index, follow",
   alternates: {
     canonical: "https://detailomaha.com",
@@ -29,19 +29,19 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Detail Omaha | Premium Mobile Auto Detailing Services",
+    title: "Signature Auto Detailing | Premium Mobile Auto Detailing Services | Perfection is our Signature",
     description:
-      "Mobile auto detailing services in Omaha. Professional interior and exterior detailing, headlight restoration, and more. We come to you!",
+      "Signature Auto Detailing - Perfection is our Signature. Mobile auto detailing services in Omaha. Professional interior and exterior detailing, paint correction, ceramic coating, headlight restoration, and more. We come to you!",
     url: "https://detailomaha.com",
-    siteName: "Detail Omaha",
+    siteName: "Signature Auto Detailing",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Detail Omaha | Premium Mobile Auto Detailing Services",
+    title: "Signature Auto Detailing | Premium Mobile Auto Detailing Services | Perfection is our Signature",
     description:
-      "Mobile auto detailing services in Omaha. Professional interior and exterior detailing, headlight restoration, and more. We come to you!",
+      "Signature Auto Detailing - Perfection is our Signature. Mobile auto detailing services in Omaha. Professional interior and exterior detailing, paint correction, ceramic coating, headlight restoration, and more. We come to you!",
   },
   generator: "v0.app",
 }

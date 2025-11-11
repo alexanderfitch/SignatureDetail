@@ -5,9 +5,9 @@ import FAQSection from "@/components/contact/faq-section"
 import { FAQSchema } from "@/components/schema"
 
 export const metadata: Metadata = {
-  title: "Contact Our Mobile Auto Detailing Team | Detail Omaha",
+  title: "Contact Our Mobile Auto Detailing Team | Signature Auto Detailing",
   description:
-    "Contact Detail Omaha's mobile detailing experts. Get answers to your questions about our services including full service detailing, interior and exterior detailing, and more.",
+    "Contact Signature Auto Detailing's mobile detailing experts. Get answers to your questions about our services including full service detailing, paint correction, ceramic coating, interior and exterior detailing, and more.",
 }
 
 export default function ContactPage() {

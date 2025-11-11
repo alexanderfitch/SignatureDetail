@@ -5,14 +5,14 @@ import TeamSection from "@/components/about/team-section"
 import AboutCTA from "@/components/about/about-cta"
 
 export const metadata: Metadata = {
-  title: "About Our Auto Detailing Company | Omaha Car Detailing Experts",
+  title: "About Signature Auto Detailing | Omaha Mobile Car Detailing Experts",
   description:
-    "Learn about our professional car detailing team in Omaha. Certified detailers with years of experience in ceramic coating, paint correction, and interior detailing.",
+    "Learn about Signature Auto Detailing's professional mobile detailing team. Sigmund and Omar bring everything in a fully-equipped van—water, electricity, and professional detailing services—right to your location.",
 }
 
 export default function AboutPage() {
   return (
-    <div className="carbon-fiber-bg">
+    <div className="page-bg">
       <AboutHero />
       <AboutContent />
       <TeamSection />

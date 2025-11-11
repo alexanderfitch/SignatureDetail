@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="carbon-fiber-bg">
+    <div className="page-bg">
       <ServiceHero />
       <ServicesList />
       <ServiceCTA />

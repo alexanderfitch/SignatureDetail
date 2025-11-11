@@ -45,7 +45,7 @@ export default function FAQSection() {
   }
 
   return (
-    <section className="py-16 bg-zinc-900">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ export default function FAQSection() {
               <button
                 onClick={() => toggleFAQ(index)}
                 className={`w-full text-left p-4 rounded-lg flex justify-between items-center transition-colors ${
-                  openIndex === index ? "bg-zinc-800" : "bg-zinc-800/50 hover:bg-zinc-800"
+                  openIndex === index ? "bg-brand-blue text-white" : "bg-slate-100 hover:bg-slate-200 text-slate-800"
                 }`}
                 aria-expanded={openIndex === index}
               >
@@ -87,8 +87,8 @@ export default function FAQSection() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="p-4 bg-zinc-800/30 rounded-b-lg">
-                      <p className="text-gray-300">{faq.answer}</p>
+                    <div className="p-4 bg-slate-50 rounded-b-lg">
+                      <p className="text-slate-600">{faq.answer}</p>
                     </div>
                   </motion.div>
                 )}

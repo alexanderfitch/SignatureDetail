@@ -83,7 +83,7 @@ export default function BookingForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red"
+              className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue text-slate-800"
             />
           </div>
 
@@ -98,7 +98,7 @@ export default function BookingForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red"
+              className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue text-slate-800"
             />
           </div>
         </div>
@@ -115,7 +115,7 @@ export default function BookingForm() {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red"
+              className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue text-slate-800"
             />
           </div>
 
@@ -124,7 +124,7 @@ export default function BookingForm() {
               Vehicle (Year, Make, Model)
             </label>
             <div className="relative">
-              <Car className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              <Car className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
               <input
                 type="text"
                 id="vehicle"
@@ -133,7 +133,7 @@ export default function BookingForm() {
                 onChange={handleChange}
                 required
                 placeholder="2023 Audi Q5"
-                className="w-full pl-10 pr-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red"
+                className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue text-slate-800"
               />
             </div>
           </div>
@@ -144,14 +144,14 @@ export default function BookingForm() {
             Service Package
           </label>
           <div className="relative">
-            <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+            <Package className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
             <select
               id="service"
               name="service"
               value={formData.service}
               onChange={handleChange}
               required
-              className="w-full pl-10 pr-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red appearance-none"
+              className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue text-slate-800 appearance-none"
             >
               <option value="">Select a service</option>
               <option value="basic-detail">Basic Detail Package</option>
@@ -171,7 +171,7 @@ export default function BookingForm() {
               Preferred Date
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
               <input
                 type="date"
                 id="date"
@@ -179,7 +179,7 @@ export default function BookingForm() {
                 value={formData.date}
                 onChange={handleChange}
                 required
-                className="w-full pl-10 pr-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red"
+                className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue text-slate-800"
               />
             </div>
           </div>
@@ -189,14 +189,14 @@ export default function BookingForm() {
               Preferred Time
             </label>
             <div className="relative">
-              <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
               <select
                 id="time"
                 name="time"
                 value={formData.time}
                 onChange={handleChange}
                 required
-                className="w-full pl-10 pr-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red appearance-none"
+                className="w-full pl-10 pr-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue text-slate-800 appearance-none"
               >
                 <option value="">Select a time</option>
                 <option value="8:00 AM">8:00 AM</option>
@@ -223,7 +223,7 @@ export default function BookingForm() {
             value={formData.notes}
             onChange={handleChange}
             rows={3}
-            className="w-full px-4 py-2 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-red"
+            className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue text-slate-800"
             placeholder="Any special requests or concerns..."
           ></textarea>
         </div>

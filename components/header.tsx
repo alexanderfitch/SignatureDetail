@@ -18,9 +18,11 @@ const navLinks = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
+    setMounted(true)
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setScrolled(true)
@@ -36,19 +38,25 @@ export default function Header() {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/90 backdrop-blur-md py-3" : "bg-transparent py-5"
+        scrolled ? "glass-effect shadow-lg py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <Link href="/" className="relative z-50">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl font-bold"
-          >
-            <span className="text-brand-red">DETAIL</span>OMAHA
-          </motion.div>
+        <Link 
+          href="/" 
+          className="relative z-50 block h-12"
+        >
+          {mounted ? (
+            <img
+              src="/images/bluelogoimage.png"
+              alt="Signature Auto Detailing"
+              width={200}
+              height={60}
+              className="h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+            />
+          ) : (
+            <div className="h-12 w-[200px] bg-transparent" aria-hidden="true" />
+          )}
         </Link>
 
         {/* Desktop Navigation */}
@@ -57,16 +65,25 @@ export default function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className={`font-medium text-sm transition-colors hover:text-brand-red ${
-                pathname === link.href ? "text-brand-red" : "text-white"
+              className={`font-medium text-sm transition-all duration-300 relative group ${
+                pathname === link.href
+                  ? "text-brand-blue"
+                  : "text-slate-700 hover:text-brand-blue"
               }`}
             >
               {link.name}
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-brand-blue to-brand-blue-accent transition-all duration-300 ${
+                  pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
             </Link>
           ))}
-          <Link href="/booking" className="btn btn-primary">
-            Book Now
-          </Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link href="/booking" className="btn btn-primary">
+              Book Now
+            </Link>
+          </motion.div>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -80,26 +97,38 @@ export default function Header() {
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/95 flex flex-col items-center justify-center z-40"
+            transition={{ duration: 0.3, type: "spring", damping: 25 }}
+            className="fixed inset-0 glass-effect shadow-2xl flex flex-col items-center justify-center z-40"
             style={{ top: 0, height: "100vh" }}
           >
             <nav className="flex flex-col items-center space-y-8">
-              {navLinks.map((link) => (
-                <Link
+              {navLinks.map((link, index) => (
+                <motion.div
                   key={link.name}
-                  href={link.href}
-                  className={`font-medium text-xl transition-colors hover:text-brand-red ${
-                    pathname === link.href ? "text-brand-red" : "text-white"
-                  }`}
-                  onClick={() => setIsOpen(false)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {link.name}
-                </Link>
+                  <Link
+                    href={link.href}
+                    className={`font-medium text-xl transition-colors hover:text-brand-blue ${
+                      pathname === link.href ? "text-brand-blue" : "text-slate-800"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-              <Link href="/booking" className="btn btn-primary mt-4" onClick={() => setIsOpen(false)}>
-                Book Now
-              </Link>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.1 }}
+              >
+                <Link href="/booking" className="btn btn-primary mt-4" onClick={() => setIsOpen(false)}>
+                  Book Now
+                </Link>
+              </motion.div>
             </nav>
           </motion.div>
         )}

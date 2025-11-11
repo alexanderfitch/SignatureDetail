@@ -18,7 +18,7 @@ export default function LocationMap() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Our mobile detailing service brings premium car care directly to your location in Omaha and surrounding
             areas.
           </p>
@@ -39,7 +39,7 @@ export default function LocationMap() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Detail Omaha Service Area"
+              title="Signature Auto Detailing Service Area"
             ></iframe>
           </motion.div>
 
@@ -47,7 +47,7 @@ export default function LocationMap() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-zinc-900 rounded-xl p-8 shadow-xl"
+            className="bg-white rounded-xl p-8 shadow-xl border border-gray-100"
           >
             <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
 
@@ -56,8 +56,8 @@ export default function LocationMap() {
                 <MapPin className="h-6 w-6 text-brand-red mr-4 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold mb-1">Service Area</h4>
-                  <p className="text-gray-300">Mobile Service - Omaha and Surrounding Areas</p>
-                  <p className="text-gray-400 text-sm mt-1">We come to you! No need to leave your home or office.</p>
+                  <p className="text-slate-600">Mobile Service - Omaha and Surrounding Areas</p>
+                  <p className="text-slate-500 text-sm mt-1">We come to you! No need to leave your home or office.</p>
                 </div>
               </div>
 
@@ -65,7 +65,7 @@ export default function LocationMap() {
                 <Phone className="h-6 w-6 text-brand-red mr-4 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold mb-1">Phone</h4>
-                  <a href="tel:+14028504546" className="text-gray-300 hover:text-white transition-colors">
+                  <a href="tel:+14028504546" className="text-slate-600 hover:text-brand-blue transition-colors">
                     (402) 850-4546
                   </a>
                 </div>
@@ -77,7 +77,7 @@ export default function LocationMap() {
                   <h4 className="font-bold mb-1">Email</h4>
                   <a
                     href="mailto:detailomahaneb@gmail.com"
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-slate-600 hover:text-brand-blue transition-colors"
                   >
                     detailomahaneb@gmail.com
                   </a>
@@ -88,9 +88,9 @@ export default function LocationMap() {
                 <Clock className="h-6 w-6 text-brand-red mr-4 mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold mb-1">Hours of Operation</h4>
-                  <p className="text-gray-300">Monday - Friday: 8am - 6pm</p>
-                  <p className="text-gray-300">Saturday: 9am - 4pm</p>
-                  <p className="text-gray-300">Sunday: By appointment only</p>
+                  <p className="text-slate-600">Monday - Friday: 8am - 6pm</p>
+                  <p className="text-slate-600">Saturday: 9am - 4pm</p>
+                  <p className="text-slate-600">Sunday: By appointment only</p>
                 </div>
               </div>
             </div>

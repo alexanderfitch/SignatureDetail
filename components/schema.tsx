@@ -2,13 +2,13 @@ export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "AutoDetailing",
-    name: "Detail Omaha",
+    name: "Signature Auto Detailing",
     image: "https://detailomaha.com/images/logo.png",
     url: "https://detailomaha.com",
     telephone: "+14028504546",
     email: "detailomahaneb@gmail.com",
     description:
-      "Mobile auto detailing service in Omaha and surrounding areas. Specializing in full service detailing, interior and exterior detailing, headlight restoration, and more.",
+      "Signature Auto Detailing - Perfection is our Signature. Mobile auto detailing service in Omaha and surrounding areas. Specializing in full service detailing, paint correction, ceramic coating, interior and exterior detailing, headlight restoration, and more.",
     areaServed: {
       "@type": "GeoCircle",
       geoMidpoint: {
@@ -36,10 +36,10 @@ export function FAQSchema() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What services does Detail Omaha offer?",
+        name: "What services does Signature Auto Detailing offer?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Detail Omaha offers a range of mobile detailing services including Full Service ($350+), Interior Detail ($250+), Exterior Detail ($200+), Headlight Restoration ($150), Clay-bar Treatment ($100+), and Paint Correction (starting at $600+).",
+          text: "Signature Auto Detailing offers a range of mobile detailing services including Full Service Detail ($350+), Paint Correction ($600+), Ceramic Coating, Interior Detail ($250+), Exterior Detail ($200+), Headlight Restoration ($150), and Clay Bar Treatment ($100+).",
         },
       },
       {

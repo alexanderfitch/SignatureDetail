@@ -57,15 +57,15 @@ export default function ValueProps() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-zinc-900">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="container mx-auto px-4" ref={ref}>
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-800"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          Why Choose <span className="text-brand-red">Detail</span> Omaha
+          Why Choose <span className="text-brand-red">Signature Auto Detailing</span>
         </motion.h2>
 
         <motion.div
@@ -77,12 +77,12 @@ export default function ValueProps() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="card hover:bg-zinc-800 transition-colors duration-300"
+              className="card"
               variants={itemVariants}
             >
               <div className="mb-4">{feature.icon}</div>
               <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-              <p className="text-gray-300">{feature.description}</p>
+              <p className="text-slate-600">{feature.description}</p>
             </motion.div>
           ))}
         </motion.div>

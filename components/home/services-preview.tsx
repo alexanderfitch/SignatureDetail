@@ -65,7 +65,7 @@ export default function ServicesPreview() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Premium Services</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             We offer a comprehensive range of mobile detailing services to keep your vehicle looking its absolute best.
           </p>
         </motion.div>
@@ -79,13 +79,13 @@ export default function ServicesPreview() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group overflow-hidden rounded-2xl bg-zinc-900 shadow-xl"
+              className="group overflow-hidden rounded-2xl bg-white shadow-xl border border-gray-100"
               variants={itemVariants}
             >
               <div className="relative h-64 overflow-hidden">
                 <Image
                   src={service.image || "/placeholder.svg"}
-                  alt={`${service.title} - ${service.price} - Detail Omaha mobile auto detailing`}
+                  alt={`${service.title} - ${service.price} - Signature Auto Detailing mobile auto detailing`}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -96,7 +96,7 @@ export default function ServicesPreview() {
                   <h3 className="text-2xl font-bold">{service.title}</h3>
                   <span className="text-brand-red font-semibold">{service.price}</span>
                 </div>
-                <p className="text-gray-300 mb-4">{service.description}</p>
+                <p className="text-slate-600 mb-4">{service.description}</p>
                 <Link
                   href={service.link}
                   className="inline-flex items-center text-brand-red font-medium hover:underline"

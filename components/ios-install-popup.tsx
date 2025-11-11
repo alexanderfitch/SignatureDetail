@@ -42,24 +42,24 @@ export default function IOSInstallPopup() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-slide-up">
-      <div className="bg-zinc-900/95 backdrop-blur-md rounded-xl p-4 shadow-xl border border-zinc-800 max-w-md mx-auto">
+      <div className="glass-effect rounded-xl p-4 shadow-xl border border-gray-200 max-w-md mx-auto">
         <div className="flex justify-between items-start mb-3">
           <h3 className="text-lg font-bold">Add to Home Screen</h3>
           <button
             onClick={dismissPopup}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-slate-500 hover:text-slate-700 transition-colors"
             aria-label="Close popup"
           >
             <X size={20} />
           </button>
         </div>
 
-        <p className="text-gray-300 text-sm mb-4">
-          Add Detail Omaha to your home screen for quick access to our services.
+        <p className="text-slate-600 text-sm mb-4">
+          Add Signature Auto Detailing to your home screen for quick access to our services.
         </p>
 
         <div className="flex items-center space-x-3 mb-3">
-          <div className="bg-zinc-800 rounded-lg p-2">
+          <div className="bg-slate-100 rounded-lg p-2">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M12 18.5L9 16H3V4H21V16H15L12 18.5Z"
@@ -74,12 +74,12 @@ export default function IOSInstallPopup() {
           </div>
           <div className="flex-1">
             <p className="text-sm font-medium">Tap the share button</p>
-            <p className="text-xs text-gray-400">Look for the share icon in Safari</p>
+            <p className="text-xs text-slate-500">Look for the share icon in Safari</p>
           </div>
         </div>
 
         <div className="flex items-center space-x-3">
-          <div className="bg-zinc-800 rounded-lg p-2">
+          <div className="bg-slate-100 rounded-lg p-2">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
               <path d="M12 8V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -88,7 +88,7 @@ export default function IOSInstallPopup() {
           </div>
           <div className="flex-1">
             <p className="text-sm font-medium">Tap "Add to Home Screen"</p>
-            <p className="text-xs text-gray-400">Scroll down and select this option</p>
+            <p className="text-xs text-slate-500">Scroll down and select this option</p>
           </div>
         </div>
       </div>

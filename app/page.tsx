@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="carbon-fiber-bg">
+    <div>
       <LocalBusinessSchema />
       <Hero />
       <ValueProps />

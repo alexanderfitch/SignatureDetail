@@ -146,7 +146,7 @@ export default function InstagramFeed() {
             <motion.div
               key={post.id}
               variants={itemVariants}
-              className="bg-zinc-900 rounded-xl overflow-hidden shadow-xl"
+              className="bg-white rounded-xl overflow-hidden shadow-xl border border-gray-100"
             >
               <div className="relative h-80">
                 <Image src={post.image || "/placeholder.svg"} alt="Instagram post" fill className="object-cover" />
@@ -163,9 +163,9 @@ export default function InstagramFeed() {
                       <span className="text-sm">{post.comments}</span>
                     </div>
                   </div>
-                  <span className="text-xs text-gray-400">{post.date}</span>
+                  <span className="text-xs text-slate-500">{post.date}</span>
                 </div>
-                <p className="text-gray-300 text-sm">{post.caption}</p>
+                <p className="text-slate-600 text-sm">{post.caption}</p>
               </div>
             </motion.div>
           ))}

@@ -17,18 +17,18 @@ export default function UrableBooking() {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-zinc-900 rounded-xl p-8 shadow-xl">
+          <div className="bg-white rounded-xl p-8 shadow-xl border border-gray-100">
             <h2 className="text-2xl font-bold mb-6 text-center">Book Your Mobile Detailing Service</h2>
 
             <div className="mb-8">
-              <div className="bg-zinc-800 p-4 rounded-lg mb-6">
-                <p className="text-center text-gray-300">
+              <div className="bg-slate-50 p-4 rounded-lg mb-6 border border-gray-200">
+                <p className="text-center text-slate-600">
                   Our booking system is powered by Urable, providing you with a seamless scheduling experience.
                 </p>
               </div>
 
               <div className="text-center mb-8">
-                <p className="text-gray-300 mb-6">Click below to access our online booking system where you can:</p>
+                <p className="text-slate-600 mb-6">Click below to access our online booking system where you can:</p>
                 <ul className="space-y-3 text-left max-w-md mx-auto mb-8">
                   <li className="flex items-start">
                     <svg
@@ -83,7 +83,7 @@ export default function UrableBooking() {
 
             {/* Alternative direct link option */}
             <div className="text-center">
-              <p className="text-gray-300 mb-4">You can also access our booking page directly:</p>
+              <p className="text-slate-600 mb-4">You can also access our booking page directly:</p>
               <Link
                 href="https://app.urable.com/virtual-shop/7rfRVyjfArlui9bPxZQL"
                 target="_blank"
@@ -95,16 +95,16 @@ export default function UrableBooking() {
             </div>
           </div>
 
-          <div className="mt-8 bg-zinc-900 rounded-xl p-6 shadow-xl">
-            <h3 className="text-xl font-bold mb-4">About Our Mobile Service</h3>
-            <p className="text-gray-300 mb-4">
+          <div className="mt-8 bg-white rounded-xl p-6 shadow-xl border border-gray-100">
+            <h3 className="text-xl font-bold mb-4 text-slate-800">About Our Mobile Service</h3>
+            <p className="text-slate-600 mb-4">
               We bring our professional detailing services directly to you! Our mobile service covers Omaha and all
               surrounding areas, making it convenient to get your vehicle detailed without leaving your home or office.
             </p>
             <div className="grid md:grid-cols-2 gap-4 mt-6">
-              <div className="bg-zinc-800 p-4 rounded-lg">
-                <h4 className="font-bold mb-2">What to Expect</h4>
-                <ul className="text-gray-300 space-y-2">
+              <div className="bg-slate-50 p-4 rounded-lg border border-gray-200">
+                <h4 className="font-bold mb-2 text-slate-800">What to Expect</h4>
+                <ul className="text-slate-600 space-y-2">
                   <li className="flex items-start">
                     <svg
                       className="h-5 w-5 text-brand-red mr-2 flex-shrink-0 mt-0.5"
@@ -140,9 +140,9 @@ export default function UrableBooking() {
                   </li>
                 </ul>
               </div>
-              <div className="bg-zinc-800 p-4 rounded-lg">
-                <h4 className="font-bold mb-2">Service Area</h4>
-                <ul className="text-gray-300 space-y-2">
+              <div className="bg-slate-50 p-4 rounded-lg border border-gray-200">
+                <h4 className="font-bold mb-2 text-slate-800">Service Area</h4>
+                <ul className="text-slate-600 space-y-2">
                   <li className="flex items-start">
                     <svg
                       className="h-5 w-5 text-brand-red mr-2 flex-shrink-0 mt-0.5"

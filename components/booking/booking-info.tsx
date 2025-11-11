@@ -40,7 +40,7 @@ export default function BookingInfo() {
             </div>
             <div>
               <h4 className="font-bold">Ceramic Coating</h4>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-600">
                 Long-lasting protection with a brilliant shine that repels water, dirt, and contaminants.
               </p>
               <Link href="/services#ceramic-coating" className="text-sm text-brand-red hover:underline">
@@ -55,7 +55,7 @@ export default function BookingInfo() {
             </div>
             <div>
               <h4 className="font-bold">Paint Correction</h4>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-600">
                 Remove swirls, scratches, and imperfections to restore your vehicle's finish.
               </p>
               <Link href="/services#paint-correction" className="text-sm text-brand-red hover:underline">
@@ -75,7 +75,7 @@ export default function BookingInfo() {
             </div>
             <div>
               <h4 className="font-bold">Interior Detailing</h4>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-slate-600">
                 Deep cleaning and conditioning of all interior surfaces for a fresh, like-new cabin experience.
               </p>
               <Link href="/services#interior-detailing" className="text-sm text-brand-red hover:underline">
@@ -86,9 +86,9 @@ export default function BookingInfo() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-red-900/80 to-black rounded-xl p-6 shadow-xl">
+      <div className="bg-gradient-to-r from-brand-blue/10 to-brand-blue-accent/10 rounded-xl p-6 shadow-xl border border-brand-blue/20">
         <h3 className="text-xl font-bold mb-3">Need Help Choosing?</h3>
-        <p className="text-gray-200 mb-4">
+        <p className="text-slate-600 mb-4">
           Not sure which service is right for your vehicle? Contact us for a personalized recommendation.
         </p>
         <Link href="/contact" className="btn btn-outline">

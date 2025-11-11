@@ -9,7 +9,7 @@ export default function BlogCTA() {
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" })
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-r from-red-900/80 to-black" ref={ref}>
+    <section className="py-16 md:py-24 bg-gradient-to-r from-brand-blue via-brand-blue-accent to-brand-purple" ref={ref}>
       <div className="container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -18,7 +18,7 @@ export default function BlogCTA() {
           className="max-w-3xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Ready to Transform Your Vehicle?</h2>
-          <p className="text-xl text-gray-200 mb-8">
+          <p className="text-xl text-white mb-8">
             Experience the same amazing results you see in our posts. Book your appointment today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -113,6 +113,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  /* Signature Auto Detailing Brand Colors */
+  --color-brand-blue: #0b4a8c;
+  --color-brand-blue-accent: #76acd0;
+  --color-brand-purple: #371a74;
+  --color-brand-white: #ffffff;
+  --color-brand-black: #000000;
 }
 
 @layer base {
@@ -125,22 +131,28 @@
 }
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 10, 10, 10;
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 241, 245, 249;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #000;
+  background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  min-height: 100vh;
 }
 
-/* Carbon fiber background class that can be applied to specific pages */
-.carbon-fiber-bg {
-  background-image: url("/images/carbon-fibre-hero.webp");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+/* Light gradient background for pages */
+.page-bg {
+  background: linear-gradient(to bottom, rgb(248, 250, 252), rgb(241, 245, 249));
+  min-height: 100vh;
+}
+
+/* Glass effect for popups */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 @layer base {
@@ -176,13 +188,61 @@ body {
   }
 }
 
+@layer utilities {
+  .text-brand-blue {
+    color: #0b4a8c;
+  }
+  .text-brand-blue-accent {
+    color: #76acd0;
+  }
+  .text-brand-purple {
+    color: #371a74;
+  }
+  .bg-brand-blue {
+    background-color: #0b4a8c;
+  }
+  .bg-brand-blue-accent {
+    background-color: #76acd0;
+  }
+  .bg-brand-purple {
+    background-color: #371a74;
+  }
+  .border-brand-blue {
+    border-color: #0b4a8c;
+  }
+  .hover\:text-brand-blue:hover {
+    color: #0b4a8c;
+  }
+  .ring-brand-blue {
+    --tw-ring-color: #0b4a8c;
+  }
+  /* Legacy brand-red class for backward compatibility - maps to brand-blue */
+  .text-brand-red {
+    color: #0b4a8c;
+  }
+  .bg-brand-red {
+    background-color: #0b4a8c;
+  }
+  .hover\:text-brand-red:hover {
+    color: #0b4a8c;
+  }
+  .ring-brand-red {
+    --tw-ring-color: #0b4a8c;
+  }
+}
+
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center rounded-full px-6 py-3 font-medium transition-all duration-300;
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 shadow-lg hover:shadow-red-600/20;
+    @apply bg-gradient-to-r text-white shadow-lg;
+    background: linear-gradient(to right, #0b4a8c, #1a5ba8);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(to right, #0a3d75, #154a8f);
+    box-shadow: 0 10px 25px rgba(11, 74, 140, 0.3);
   }
 
   .btn-secondary {
@@ -190,7 +250,8 @@ body {
   }
 
   .btn-outline {
-    @apply border-2 border-white text-white hover:bg-white hover:text-black;
+    @apply border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white;
+    background: transparent;
   }
 
   .section-padding {
@@ -198,11 +259,16 @@ body {
   }
 
   .card {
-    @apply bg-zinc-900 rounded-2xl p-6 shadow-xl;
+    @apply bg-white rounded-2xl p-6 shadow-lg border border-gray-100;
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    @apply shadow-xl;
+    transform: translateY(-4px);
   }
 
   .content-box {
-    @apply bg-zinc-900/90 backdrop-blur-sm rounded-xl p-6 shadow-xl;
+    @apply bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/20;
   }
 }
 
@@ -212,16 +278,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e11d48;
+  background: linear-gradient(to bottom, #0b4a8c, #76acd0);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #be123c;
+  background: linear-gradient(to bottom, #0a3d75, #5a9bc0);
 }
 
 /* Animation classes */
@@ -266,4 +332,63 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Modern animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }

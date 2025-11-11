@@ -23,15 +23,15 @@ const services = [
     images: [
       {
         src: "/images/gallery/paint-correction-1.webp",
-        alt: "Full service paint correction on black Maserati - Detail Omaha",
+        alt: "Full service paint correction on black Maserati - Signature Auto Detailing",
       },
       {
         src: "/images/gallery/interior-2.webp",
-        alt: "Full service interior detailing of Maserati - Detail Omaha",
+        alt: "Full service interior detailing of Maserati - Signature Auto Detailing",
       },
       {
         src: "/images/gallery/exterior-3.webp",
-        alt: "Full service exterior detailing of black Maserati - Detail Omaha",
+        alt: "Full service exterior detailing of black Maserati - Signature Auto Detailing",
       },
     ],
     icon: <Shield className="h-8 w-8 text-brand-red" />,
@@ -126,6 +126,36 @@ const services = [
     icon: <Sparkles className="h-8 w-8 text-brand-red" />,
     layout: "before-after",
   },
+  {
+    id: "ceramic-coating",
+    title: "Ceramic Coating",
+    price: "Starting at $800+",
+    description:
+      "Our professional Ceramic Coating service provides long-lasting protection for your vehicle's paint. This advanced nanotechnology creates a semi-permanent bond with your paint, offering superior protection against UV rays, chemical stains, bird droppings, and environmental contaminants. The hydrophobic properties make washing easier and keep your vehicle looking pristine longer.",
+    features: [
+      "Multi-year protection against UV damage",
+      "Hydrophobic surface that repels water and dirt",
+      "Chemical resistance to acidic contaminants",
+      "Enhanced gloss and depth of color",
+      "Easy maintenance and cleaning",
+    ],
+    images: [
+      {
+        src: "/images/gallery/ceramic-coating-1.webp",
+        alt: "Ceramic coating application on vehicle - Signature Auto Detailing",
+      },
+      {
+        src: "/images/gallery/ceramic-coating-2.webp",
+        alt: "Mirror finish ceramic coating - Signature Auto Detailing",
+      },
+      {
+        src: "/images/gallery/ceramic-coating-3.webp",
+        alt: "Ceramic coating on vehicle - Signature Auto Detailing",
+      },
+    ],
+    icon: <Droplet className="h-8 w-8 text-brand-red" />,
+    layout: "triple",
+  },
 ]
 
 export default function ServicesList() {
@@ -173,7 +203,7 @@ export default function ServicesList() {
                 className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}
               >
                 <div className={`${index % 2 === 1 ? "md:col-start-2" : ""}`}>
-                  <div className="bg-zinc-900/90 backdrop-blur-sm rounded-xl p-6 shadow-xl">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-gray-100">
                     <div className="flex items-center mb-4">
                       <div className="mr-3">{service.icon}</div>
                       <div>
@@ -181,7 +211,7 @@ export default function ServicesList() {
                         <p className="text-brand-red font-semibold">{service.price}</p>
                       </div>
                     </div>
-                    <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+                    <p className="text-slate-600 mb-6 leading-relaxed">{service.description}</p>
                     <ul className="space-y-2">
                       {service.features.map((feature, i) => (
                         <li key={i} className="flex items-start">
@@ -233,7 +263,7 @@ export default function ServicesList() {
                     <div className="space-y-4">
                       <div className="rounded-xl overflow-hidden shadow-xl">
                         <div className="relative">
-                          <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                          <div className="absolute top-2 left-2 bg-slate-800/90 text-white text-xs px-2 py-1 rounded">
                             BEFORE
                           </div>
                           <Image
@@ -274,7 +304,7 @@ export default function ServicesList() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 {/* Full width text content */}
-                <div className="bg-zinc-900/90 backdrop-blur-sm rounded-xl p-8 shadow-xl mb-8">
+                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-8 shadow-xl mb-8 border border-gray-100">
                   <div className="flex items-center mb-6">
                     <div className="mr-4">{service.icon}</div>
                     <div>
@@ -285,7 +315,7 @@ export default function ServicesList() {
 
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
-                      <p className="text-gray-300 leading-relaxed mb-6">{service.description}</p>
+                      <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
                     </div>
                     <div>
                       <ul className="space-y-2">
@@ -344,7 +374,7 @@ export default function ServicesList() {
                   <div className="grid grid-cols-2 gap-6">
                     <div className="rounded-xl overflow-hidden shadow-xl">
                       <div className="relative">
-                        <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded z-10">
+                        <div className="absolute top-2 left-2 bg-slate-800/90 text-white text-xs px-2 py-1 rounded z-10">
                           BEFORE
                         </div>
                         <div className="aspect-[16/9] relative">
