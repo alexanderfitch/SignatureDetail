@@ -1,9 +1,9 @@
 "use client"
 
-import { useRef, useState, useEffect } from "react"
+import { useRef } from "react"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
-import { Shield, Droplet, Car, PenToolIcon as Tool, Sparkles, Zap } from "lucide-react"
+import { Shield, Droplet, Car, PenTool as Tool, Sparkles, Zap } from "lucide-react"
 
 const services = [
   {
@@ -34,7 +34,7 @@ const services = [
         alt: "Full service exterior detailing of black Maserati - Signature Auto Detailing",
       },
     ],
-    icon: <Shield className="h-8 w-8 text-brand-red" />,
+    icon: <Shield className="h-8 w-8 text-brand-blue" />,
     layout: "triple",
   },
   {
@@ -52,7 +52,7 @@ const services = [
     ],
     beforeImage: "/images/services/interior-before.webp",
     afterImage: "/images/services/interior-after.webp",
-    icon: <Car className="h-8 w-8 text-brand-red" />,
+    icon: <Car className="h-8 w-8 text-brand-blue" />,
     layout: "before-after",
   },
   {
@@ -70,7 +70,7 @@ const services = [
     ],
     beforeImage: "/images/services/exterior-before.webp",
     afterImage: "/images/services/exterior-after.webp",
-    icon: <Droplet className="h-8 w-8 text-brand-red" />,
+    icon: <Droplet className="h-8 w-8 text-brand-blue" />,
     layout: "before-after",
   },
   {
@@ -88,7 +88,7 @@ const services = [
     ],
     beforeImage: "/images/services/headlight-before.jpeg",
     afterImage: "/images/services/headlight-after.jpeg",
-    icon: <Zap className="h-8 w-8 text-brand-red" />,
+    icon: <Zap className="h-8 w-8 text-brand-blue" />,
     layout: "before-after",
   },
   {
@@ -105,7 +105,7 @@ const services = [
       "Improved effectiveness of paint protection products",
     ],
     singleImage: "/images/gallery/ceramic-coating-new.jpeg",
-    icon: <Tool className="h-8 w-8 text-brand-red" />,
+    icon: <Tool className="h-8 w-8 text-brand-blue" />,
     layout: "single",
   },
   {
@@ -123,7 +123,7 @@ const services = [
     ],
     beforeImage: null,
     afterImage: null,
-    icon: <Sparkles className="h-8 w-8 text-brand-red" />,
+    icon: <Sparkles className="h-8 w-8 text-brand-blue" />,
     layout: "before-after",
   },
   {
@@ -153,7 +153,7 @@ const services = [
         alt: "Ceramic coating on vehicle - Signature Auto Detailing",
       },
     ],
-    icon: <Droplet className="h-8 w-8 text-brand-red" />,
+    icon: <Droplet className="h-8 w-8 text-brand-blue" />,
     layout: "triple",
   },
 ]
@@ -161,24 +161,6 @@ const services = [
 export default function ServicesList() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" })
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    // Check if we're on mobile
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-
-    // Initial check
-    checkMobile()
-
-    // Add resize listener
-    window.addEventListener("resize", checkMobile)
-
-    return () => {
-      window.removeEventListener("resize", checkMobile)
-    }
-  }, [])
 
   // Helper function to get a placeholder image with service name
   const getPlaceholderImage = (serviceName: string, type: string) => {
@@ -186,161 +168,61 @@ export default function ServicesList() {
   }
 
   return (
-    <section className="py-16" ref={ref}>
+    <section className="py-16 bg-slate-50" ref={ref}>
       <div className="container mx-auto px-4">
-        {services.map((service, index) => (
-          <div
-            key={service.id}
-            id={service.id}
-            className={`py-16 ${index !== services.length - 1 ? "border-b border-zinc-800" : ""}`}
-          >
-            {/* Mobile view */}
-            {isMobile && (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "md:grid-flow-dense" : ""}`}
-              >
-                <div className={`${index % 2 === 1 ? "md:col-start-2" : ""}`}>
-                  <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-gray-100">
-                    <div className="flex items-center mb-4">
-                      <div className="mr-3">{service.icon}</div>
-                      <div>
-                        <h2 className="text-3xl font-bold">{service.title}</h2>
-                        <p className="text-brand-red font-semibold">{service.price}</p>
-                      </div>
-                    </div>
-                    <p className="text-slate-600 mb-6 leading-relaxed">{service.description}</p>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, i) => (
-                        <li key={i} className="flex items-start">
-                          <svg
-                            className="h-6 w-6 text-brand-red mr-2 flex-shrink-0"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+        <div className="space-y-12">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.id}
+              id={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-transparent hover:border-brand-blue transition-all duration-300"
+            >
+              {/* Service Header - Rounded Text Box */}
+              <div className="bg-gradient-to-r from-brand-blue to-brand-blue-accent p-8 md:p-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl">{service.icon}</div>
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white">{service.title}</h2>
+                    <p className="text-xl font-semibold text-white/90 mt-1">{service.price}</p>
                   </div>
                 </div>
+              </div>
 
-                <div className={`${index % 2 === 1 ? "md:col-start-1" : ""}`}>
+              {/* Service Content */}
+              <div className="p-8 md:p-10">
+                {/* Description Section - Rounded Text Box */}
+                <div className="bg-slate-50 rounded-2xl p-6 md:p-8 mb-8">
+                  <p className="text-slate-700 text-lg leading-relaxed">{service.description}</p>
+                </div>
+
+                {/* Features Section - Rounded Text Box */}
+                <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 md:p-8 mb-8">
+                  <h3 className="text-xl font-bold text-slate-800 mb-4">What's Included:</h3>
+                  <ul className="grid md:grid-cols-2 gap-4">
+                    {service.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <svg
+                          className="h-6 w-6 text-brand-blue flex-shrink-0 mt-0.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-slate-600">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Images Section */}
+                <div className="rounded-2xl overflow-hidden">
+                  {/* Single image layout */}
                   {service.layout === "single" && (
-                    <div className="rounded-xl overflow-hidden shadow-xl">
-                      <Image
-                        src={service.singleImage || getPlaceholderImage(service.title, "")}
-                        alt={`${service.title} - Mobile auto detailing in Omaha`}
-                        width={600}
-                        height={400}
-                        className="w-full h-auto object-cover"
-                      />
-                    </div>
-                  )}
-
-                  {service.layout === "triple" && (
-                    <div className="space-y-4">
-                      {service.images?.map((image, i) => (
-                        <div key={i} className="rounded-xl overflow-hidden shadow-xl">
-                          <Image
-                            src={image.src || getPlaceholderImage(service.title, `Image ${i + 1}`)}
-                            alt={image.alt}
-                            width={600}
-                            height={400}
-                            className="w-full h-auto object-cover"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {service.layout === "before-after" && (
-                    <div className="space-y-4">
-                      <div className="rounded-xl overflow-hidden shadow-xl">
-                        <div className="relative">
-                          <div className="absolute top-2 left-2 bg-slate-800/90 text-white text-xs px-2 py-1 rounded">
-                            BEFORE
-                          </div>
-                          <Image
-                            src={service.beforeImage || getPlaceholderImage(service.title, "Before")}
-                            alt={`${service.title} Before - Mobile auto detailing in Omaha`}
-                            width={600}
-                            height={400}
-                            className="w-full h-auto object-cover"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="rounded-xl overflow-hidden shadow-xl">
-                        <div className="relative">
-                          <div className="absolute top-2 left-2 bg-brand-red/90 text-white text-xs px-2 py-1 rounded">
-                            AFTER
-                          </div>
-                          <Image
-                            src={service.afterImage || getPlaceholderImage(service.title, "After")}
-                            alt={`${service.title} After - Mobile auto detailing in Omaha`}
-                            width={600}
-                            height={400}
-                            className="w-full h-auto object-cover"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            )}
-
-            {/* Desktop view */}
-            {!isMobile && (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                {/* Full width text content */}
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-8 shadow-xl mb-8 border border-gray-100">
-                  <div className="flex items-center mb-6">
-                    <div className="mr-4">{service.icon}</div>
-                    <div>
-                      <h2 className="text-3xl font-bold">{service.title}</h2>
-                      <p className="text-brand-red font-semibold">{service.price}</p>
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div>
-                      <p className="text-slate-600 leading-relaxed mb-6">{service.description}</p>
-                    </div>
-                    <div>
-                      <ul className="space-y-2">
-                        {service.features.map((feature, i) => (
-                          <li key={i} className="flex items-start">
-                            <svg
-                              className="h-6 w-6 text-brand-red mr-2 flex-shrink-0"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Single image layout */}
-                {service.layout === "single" && (
-                  <div className="rounded-xl overflow-hidden shadow-xl">
-                    <div className="aspect-[21/9] relative">
+                    <div className="aspect-[21/9] relative rounded-2xl overflow-hidden shadow-lg">
                       <Image
                         src={service.singleImage || getPlaceholderImage(service.title, "")}
                         alt={`${service.title} - Mobile auto detailing in Omaha`}
@@ -348,15 +230,13 @@ export default function ServicesList() {
                         className="object-cover"
                       />
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {/* Triple image layout */}
-                {service.layout === "triple" && (
-                  <div className="grid grid-cols-3 gap-6">
-                    {service.images?.map((image, i) => (
-                      <div key={i} className="rounded-xl overflow-hidden shadow-xl">
-                        <div className="aspect-[4/3] relative">
+                  {/* Triple image layout */}
+                  {service.layout === "triple" && (
+                    <div className="grid md:grid-cols-3 gap-4">
+                      {service.images?.map((image, i) => (
+                        <div key={i} className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-lg">
                           <Image
                             src={image.src || getPlaceholderImage(service.title, `Image ${i + 1}`)}
                             alt={image.alt}
@@ -364,20 +244,18 @@ export default function ServicesList() {
                             className="object-cover"
                           />
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                      ))}
+                    </div>
+                  )}
 
-                {/* Before/After layout */}
-                {service.layout === "before-after" && (
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="rounded-xl overflow-hidden shadow-xl">
-                      <div className="relative">
-                        <div className="absolute top-2 left-2 bg-slate-800/90 text-white text-xs px-2 py-1 rounded z-10">
+                  {/* Before/After layout */}
+                  {service.layout === "before-after" && (
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                        <div className="absolute top-4 left-4 bg-slate-800/90 text-white text-sm font-bold px-4 py-2 rounded-full z-10">
                           BEFORE
                         </div>
-                        <div className="aspect-[16/9] relative">
+                        <div className="aspect-[4/3] relative">
                           <Image
                             src={service.beforeImage || getPlaceholderImage(service.title, "Before")}
                             alt={`${service.title} Before - Mobile auto detailing in Omaha`}
@@ -386,14 +264,12 @@ export default function ServicesList() {
                           />
                         </div>
                       </div>
-                    </div>
 
-                    <div className="rounded-xl overflow-hidden shadow-xl">
-                      <div className="relative">
-                        <div className="absolute top-2 left-2 bg-brand-red/90 text-white text-xs px-2 py-1 rounded z-10">
+                      <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                        <div className="absolute top-4 left-4 bg-brand-blue/90 text-white text-sm font-bold px-4 py-2 rounded-full z-10">
                           AFTER
                         </div>
-                        <div className="aspect-[16/9] relative">
+                        <div className="aspect-[4/3] relative">
                           <Image
                             src={service.afterImage || getPlaceholderImage(service.title, "After")}
                             alt={`${service.title} After - Mobile auto detailing in Omaha`}
@@ -403,12 +279,12 @@ export default function ServicesList() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </motion.div>
-            )}
-          </div>
-        ))}
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )

@@ -37,25 +37,30 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "glass-effect shadow-lg py-3" : "bg-transparent py-5"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "glass-effect shadow-lg py-3" : "py-5"}`}
+      style={
+        !scrolled
+          ? {
+              background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%)",
+            }
+          : {}
+      }
     >
       <div className="container mx-auto flex justify-between items-center">
-        <Link 
-          href="/" 
-          className="relative z-50 block h-12"
-        >
+        <Link href="/" className="relative z-50 block h-20 overflow-hidden">
           {mounted ? (
             <img
               src="/images/bluelogoimage.png"
               alt="Signature Auto Detailing"
-              width={200}
-              height={60}
-              className="h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              width={320}
+              height={100}
+              className={`h-20 w-auto object-cover transition-all duration-300 hover:scale-105 ${
+                scrolled ? "" : "brightness-0 invert"
+              }`}
+              style={{ objectPosition: "center 30%" }}
             />
           ) : (
-            <div className="h-12 w-[200px] bg-transparent" aria-hidden="true" />
+            <div className="h-20 w-[320px] bg-transparent" aria-hidden="true" />
           )}
         </Link>
 
@@ -65,10 +70,12 @@ export default function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className={`font-medium text-sm transition-all duration-300 relative group ${
+              className={`font-medium text-sm transition-all duration-300 relative group px-4 py-2 rounded-lg ${
                 pathname === link.href
                   ? "text-brand-blue"
-                  : "text-slate-700 hover:text-brand-blue"
+                  : scrolled
+                    ? "text-slate-700 hover:text-brand-blue"
+                    : "text-white hover:text-blue-200"
               }`}
             >
               {link.name}
@@ -87,7 +94,11 @@ export default function Header() {
         </nav>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden relative z-50" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+        <button
+          className={`md:hidden relative z-50 ${!scrolled ? "text-white" : "text-slate-800"}`}
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 

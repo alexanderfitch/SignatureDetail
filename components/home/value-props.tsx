@@ -75,11 +75,7 @@ export default function ValueProps() {
           animate={isInView ? "visible" : "hidden"}
         >
           {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              className="card"
-              variants={itemVariants}
-            >
+            <motion.div key={index} className="card hover:border hover:border-brand-red" variants={itemVariants}>
               <div className="mb-4">{feature.icon}</div>
               <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
               <p className="text-slate-600">{feature.description}</p>
