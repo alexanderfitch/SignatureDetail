@@ -37,9 +37,18 @@ export default function Hero() {
 
     if (!video1 || !video2) return
 
-    // Set playback rate to 0.75 for slower, smoother playback
-    video1.playbackRate = 0.75
-    video2.playbackRate = 0.75
+    // Force play on mobile devices
+    const playVideo = async () => {
+      try {
+        video1.playbackRate = 0.75
+        video2.playbackRate = 0.75
+        await video1.play()
+      } catch (err) {
+        console.log("[v0] Video autoplay failed:", err)
+      }
+    }
+
+    playVideo()
 
     const handleVideoTimeUpdate = () => {
       const currentVideo = activeVideo === 1 ? video1 : video2
@@ -49,7 +58,8 @@ export default function Hero() {
       if (currentVideo.duration - currentVideo.currentTime < 1 && !isTransitioning) {
         setIsTransitioning(true)
         nextVideo.currentTime = 0
-        nextVideo.play()
+        nextVideo.playbackRate = 0.75
+        nextVideo.play().catch((err) => console.log("[v0] Next video play failed:", err))
 
         // Switch active video after blur transition
         setTimeout(() => {
@@ -92,6 +102,9 @@ export default function Hero() {
           autoPlay
           muted
           playsInline
+          preload="auto"
+          // @ts-ignore - webkit-playsinline is not in types but needed for iOS
+          webkit-playsinline="true"
         >
           <source
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0135-auYtcrlHi084TDCmvfLTCadcMmvc23.mov"
@@ -105,6 +118,9 @@ export default function Hero() {
           } ${isTransitioning && activeVideo === 2 ? "blur-sm" : "blur-0"}`}
           muted
           playsInline
+          preload="auto"
+          // @ts-ignore - webkit-playsinline is not in types but needed for iOS
+          webkit-playsinline="true"
         >
           <source
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0135-auYtcrlHi084TDCmvfLTCadcMmvc23.mov"
