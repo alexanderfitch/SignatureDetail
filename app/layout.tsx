@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+
 import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -8,6 +8,10 @@ import { Analytics } from "@/components/analytics"
 import { Suspense } from "react"
 import IOSInstallPopup from "@/components/ios-install-popup"
 import ScrollToTop from "@/components/scroll-to-top"
+import { Inter, Roboto_Slab as V0_Font_Roboto_Slab } from 'next/font/google'
+
+// Initialize fonts
+const _robotoSlab = V0_Font_Roboto_Slab({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 

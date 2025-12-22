@@ -4,15 +4,17 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Home, Wrench, ImageIcon, Info, FileText, Phone } from "lucide-react"
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
+import { TubelightNavbar } from "@/components/ui/tubelight-navbar"
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/", icon: Home },
+  { name: "Services", href: "/services", icon: Wrench },
+  { name: "Gallery", href: "/gallery", icon: ImageIcon },
+  { name: "About", href: "/about", icon: Info },
+  { name: "Blog", href: "/blog", icon: FileText },
+  { name: "Contact", href: "/contact", icon: Phone },
 ]
 
 export default function Header() {
@@ -20,6 +22,14 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
+  const [activeTab, setActiveTab] = useState("Home")
+
+  useEffect(() => {
+    const currentLink = navLinks.find((link) => link.href === pathname)
+    if (currentLink) {
+      setActiveTab(currentLink.name)
+    }
+  }, [pathname])
 
   useEffect(() => {
     setMounted(true)
@@ -54,7 +64,7 @@ export default function Header() {
               alt="Signature Auto Detailing"
               width={320}
               height={100}
-              className={`h-20 w-auto object-cover transition-all duration-300 hover:scale-105 ${
+              className={`object-cover transition-all duration-300 hover:scale-105 w-auto h-24 ${
                 scrolled ? "" : "brightness-0 invert"
               }`}
               style={{ objectPosition: "center 30%" }}
@@ -64,33 +74,23 @@ export default function Header() {
           )}
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`font-medium text-sm transition-all duration-300 relative group px-4 py-2 rounded-lg ${
-                pathname === link.href
-                  ? "text-brand-blue"
-                  : scrolled
-                    ? "text-slate-700 hover:text-brand-blue"
-                    : "text-white hover:text-blue-200"
-              }`}
-            >
-              {link.name}
-              <span
-                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-brand-blue to-brand-blue-accent transition-all duration-300 ${
-                  pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
-                }`}
-              />
-            </Link>
-          ))}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/booking" className="btn btn-primary">
-              Book Now
-            </Link>
-          </motion.div>
+          <TubelightNavbar
+            items={navLinks.map((link) => ({
+              name: link.name,
+              url: link.href,
+              icon: link.icon,
+            }))}
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+            scrolled={scrolled}
+          />
+          <Link href="/booking">
+            <InteractiveHoverButton
+              text="Book Now"
+              className="bg-brand-blue border-brand-blue text-white hover:shadow-lg"
+            />
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -136,8 +136,11 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.1 }}
               >
-                <Link href="/booking" className="btn btn-primary mt-4" onClick={() => setIsOpen(false)}>
-                  Book Now
+                <Link href="/booking" onClick={() => setIsOpen(false)}>
+                  <InteractiveHoverButton
+                    text="Book Now"
+                    className="bg-brand-blue border-brand-blue text-white hover:shadow-lg mt-4"
+                  />
                 </Link>
               </motion.div>
             </nav>

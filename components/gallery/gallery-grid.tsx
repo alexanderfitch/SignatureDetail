@@ -125,7 +125,8 @@ const galleryImages = [
     alt: "Exterior detailing of black Maserati SUV - Signature Auto Detailing",
     category: "exterior",
     title: "Exterior Detailing",
-    description: "Professional mobile detailing of a black Maserati SUV with Signature Auto Detailing's signature service.",
+    description:
+      "Professional mobile detailing of a black Maserati SUV with Signature Auto Detailing's signature service.",
     isVideo: false,
   },
 ]
@@ -138,6 +139,7 @@ export default function GalleryGrid() {
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({})
   const [videoError, setVideoError] = useState<{ [key: number]: boolean }>({})
   const [videoLoaded, setVideoLoaded] = useState<{ [key: number]: boolean }>({})
+  const [imageLoading, setImageLoading] = useState<{ [key: number]: boolean }>({})
 
   const filteredImages =
     activeCategory === "all" ? galleryImages : galleryImages.filter((img) => img.category === activeCategory)
@@ -248,7 +250,7 @@ export default function GalleryGrid() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {filteredImages.map((image) => (
+          {filteredImages.map((image, index) => (
             <motion.div
               key={image.id}
               variants={itemVariants}
@@ -257,7 +259,7 @@ export default function GalleryGrid() {
               onMouseEnter={() => image.isVideo && !videoError[image.id] && handleMouseEnter(image.id)}
               onMouseLeave={() => image.isVideo && !videoError[image.id] && handleMouseLeave(image.id)}
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-64 overflow-hidden bg-slate-100">
                 {image.isVideo ? (
                   <>
                     {/* Always show thumbnail image initially */}
@@ -265,7 +267,12 @@ export default function GalleryGrid() {
                       src={image.thumbnail || "/placeholder.svg"}
                       alt={image.alt}
                       fill
-                      className={`object-cover ${videoLoaded[image.id] && !videoError[image.id] ? "hidden" : "block"}`}
+                      className={`object-cover transition-opacity duration-300 ${
+                        videoLoaded[image.id] && !videoError[image.id] ? "opacity-0" : "opacity-100"
+                      }`}
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQAAA//9k="
+                      priority={index < 3}
                     />
 
                     <video
@@ -274,8 +281,8 @@ export default function GalleryGrid() {
                       muted
                       loop
                       playsInline
-                      className={`object-cover w-full h-full ${
-                        videoLoaded[image.id] && !videoError[image.id] ? "block" : "hidden"
+                      className={`object-cover w-full h-full transition-opacity duration-300 ${
+                        videoLoaded[image.id] && !videoError[image.id] ? "opacity-100" : "opacity-0"
                       }`}
                       poster={image.thumbnail}
                       onError={(e) => handleVideoError(image.id, e)}
@@ -291,12 +298,23 @@ export default function GalleryGrid() {
                     </div>
                   </>
                 ) : (
-                  <Image
-                    src={image.src || "/placeholder.svg"}
-                    alt={image.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  <>
+                    {imageLoading[image.id] !== false && (
+                      <div className="absolute inset-0 bg-slate-200 animate-pulse" />
+                    )}
+                    <Image
+                      src={image.src || "/placeholder.svg"}
+                      alt={image.alt}
+                      fill
+                      className={`object-cover transition-all duration-500 group-hover:scale-110 ${
+                        imageLoading[image.id] === false ? "opacity-100" : "opacity-0"
+                      }`}
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQAAA//9k="
+                      priority={index < 3}
+                      onLoad={() => setImageLoading((prev) => ({ ...prev, [image.id]: false }))}
+                    />
+                  </>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4">

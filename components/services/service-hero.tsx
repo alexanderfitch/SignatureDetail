@@ -10,7 +10,7 @@ export default function ServiceHero() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Our Premium <span className="text-brand-red">Detailing Services</span>
           </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto font-sans">
             We offer a comprehensive range of professional detailing options tailored to meet your needs—all from the
             convenience of your driveway. Whether you're looking for routine monthly maintenance or addressing specific
             concerns, we've got you covered with services designed to keep your vehicle in top condition.

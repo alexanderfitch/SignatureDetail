@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
@@ -33,6 +33,7 @@ const services = [
 export default function ServicesPreview() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" })
+  const [imageLoading, setImageLoading] = useState<{ [key: number]: boolean }>({})
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -82,12 +83,19 @@ export default function ServicesPreview() {
               className="group overflow-hidden rounded-2xl bg-white shadow-xl border border-gray-100"
               variants={itemVariants}
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-64 overflow-hidden bg-slate-100">
+                {imageLoading[index] !== false && <div className="absolute inset-0 bg-slate-200 animate-pulse z-10" />}
                 <Image
                   src={service.image || "/placeholder.svg"}
                   alt={`${service.title} - ${service.price} - Signature Auto Detailing mobile auto detailing`}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className={`object-cover transition-all duration-500 group-hover:scale-110 ${
+                    imageLoading[index] === false ? "opacity-100" : "opacity-0"
+                  }`}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQAAA//9k="
+                  priority={index < 3}
+                  onLoad={() => setImageLoading((prev) => ({ ...prev, [index]: false }))}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
               </div>

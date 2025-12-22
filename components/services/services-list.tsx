@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { Shield, Droplet, Car, PenTool as Tool, Sparkles, Zap } from "lucide-react"
@@ -86,8 +86,8 @@ const services = [
       "UV protective coating application",
       "Improved nighttime visibility and safety",
     ],
-    beforeImage: "/images/services/headlight-before.jpeg",
-    afterImage: "/images/services/headlight-after.jpeg",
+    beforeImage: null,
+    afterImage: null,
     icon: <Zap className="h-8 w-8 text-brand-blue" />,
     layout: "before-after",
   },
@@ -161,6 +161,7 @@ const services = [
 export default function ServicesList() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" })
+  const [imageLoading, setImageLoading] = useState<{ [key: string]: boolean }>({})
 
   // Helper function to get a placeholder image with service name
   const getPlaceholderImage = (serviceName: string, type: string) => {
@@ -222,12 +223,21 @@ export default function ServicesList() {
                 <div className="rounded-2xl overflow-hidden">
                   {/* Single image layout */}
                   {service.layout === "single" && (
-                    <div className="aspect-[21/9] relative rounded-2xl overflow-hidden shadow-lg">
+                    <div className="aspect-[21/9] relative rounded-2xl overflow-hidden shadow-lg bg-slate-100">
+                      {imageLoading[`${service.id}-single`] !== false && (
+                        <div className="absolute inset-0 bg-slate-200 animate-pulse" />
+                      )}
                       <Image
                         src={service.singleImage || getPlaceholderImage(service.title, "")}
                         alt={`${service.title} - Mobile auto detailing in Omaha`}
                         fill
-                        className="object-cover"
+                        className={`object-cover transition-opacity duration-500 ${
+                          imageLoading[`${service.id}-single`] === false ? "opacity-100" : "opacity-0"
+                        }`}
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQAAA//9k="
+                        priority={index === 0}
+                        onLoad={() => setImageLoading((prev) => ({ ...prev, [`${service.id}-single`]: false }))}
                       />
                     </div>
                   )}
@@ -236,12 +246,24 @@ export default function ServicesList() {
                   {service.layout === "triple" && (
                     <div className="grid md:grid-cols-3 gap-4">
                       {service.images?.map((image, i) => (
-                        <div key={i} className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-lg">
+                        <div
+                          key={i}
+                          className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-lg bg-slate-100"
+                        >
+                          {imageLoading[`${service.id}-${i}`] !== false && (
+                            <div className="absolute inset-0 bg-slate-200 animate-pulse" />
+                          )}
                           <Image
                             src={image.src || getPlaceholderImage(service.title, `Image ${i + 1}`)}
                             alt={image.alt}
                             fill
-                            className="object-cover"
+                            className={`object-cover transition-opacity duration-500 ${
+                              imageLoading[`${service.id}-${i}`] === false ? "opacity-100" : "opacity-0"
+                            }`}
+                            placeholder="blur"
+                            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQAAA//9k="
+                            priority={index === 0 && i === 0}
+                            onLoad={() => setImageLoading((prev) => ({ ...prev, [`${service.id}-${i}`]: false }))}
                           />
                         </div>
                       ))}
@@ -251,30 +273,48 @@ export default function ServicesList() {
                   {/* Before/After layout */}
                   {service.layout === "before-after" && (
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                      <div className="relative rounded-2xl overflow-hidden shadow-lg bg-slate-100">
                         <div className="absolute top-4 left-4 bg-slate-800/90 text-white text-sm font-bold px-4 py-2 rounded-full z-10">
                           BEFORE
                         </div>
                         <div className="aspect-[4/3] relative">
+                          {imageLoading[`${service.id}-before`] !== false && (
+                            <div className="absolute inset-0 bg-slate-200 animate-pulse" />
+                          )}
                           <Image
                             src={service.beforeImage || getPlaceholderImage(service.title, "Before")}
                             alt={`${service.title} Before - Mobile auto detailing in Omaha`}
                             fill
-                            className="object-cover"
+                            className={`object-cover transition-opacity duration-500 ${
+                              imageLoading[`${service.id}-before`] === false ? "opacity-100" : "opacity-0"
+                            }`}
+                            placeholder="blur"
+                            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQAAA//9k="
+                            priority={index === 0}
+                            onLoad={() => setImageLoading((prev) => ({ ...prev, [`${service.id}-before`]: false }))}
                           />
                         </div>
                       </div>
 
-                      <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                      <div className="relative rounded-2xl overflow-hidden shadow-lg bg-slate-100">
                         <div className="absolute top-4 left-4 bg-brand-blue/90 text-white text-sm font-bold px-4 py-2 rounded-full z-10">
                           AFTER
                         </div>
                         <div className="aspect-[4/3] relative">
+                          {imageLoading[`${service.id}-after`] !== false && (
+                            <div className="absolute inset-0 bg-slate-200 animate-pulse" />
+                          )}
                           <Image
                             src={service.afterImage || getPlaceholderImage(service.title, "After")}
                             alt={`${service.title} After - Mobile auto detailing in Omaha`}
                             fill
-                            className="object-cover"
+                            className={`object-cover transition-opacity duration-500 ${
+                              imageLoading[`${service.id}-after`] === false ? "opacity-100" : "opacity-0"
+                            }`}
+                            placeholder="blur"
+                            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQAAA//9k="
+                            priority={index === 0}
+                            onLoad={() => setImageLoading((prev) => ({ ...prev, [`${service.id}-after`]: false }))}
                           />
                         </div>
                       </div>

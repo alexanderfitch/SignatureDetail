@@ -9,25 +9,25 @@ const features = [
     icon: <Shield className="h-10 w-10 text-brand-red" />,
     title: "Premium Protection",
     description:
-      "No matter which service you choose, we always apply a protectant—whether it's to interior surfaces or exterior finishes. It helps preserve materials, repel dust, and keep your car looking fresh longer.",
+      "No matter which service you choose, we always apply a protectant. It helps preserve materials, repel dust, and keep your car looking fresh longer.",
   },
   {
     icon: <Award className="h-10 w-10 text-brand-red" />,
     title: "Quality Guarantee",
     description:
-      "We stand behind our work with a 100% satisfaction guarantee. We never leave a job until you're happy, and if you're not completely satisfied, we'll make it right—no questions asked.",
+      "We stand behind our work with a 100% satisfaction guarantee. If you're not completely satisfied, we'll make it right no questions asked.",
   },
   {
     icon: <Clock className="h-10 w-10 text-brand-red" />,
     title: "Time Efficient",
     description:
-      "We respect your time by offering a fast, stress-free detailing experience that comes to you. Our mobile service is designed for your convenience—delivering professional results without compromising on quality or attention to detail.",
+      "We respect your time by offering a fast, stress free detailing experience that comes to you. We don't compromise quality or attention to detail.",
   },
   {
     icon: <Sparkles className="h-10 w-10 text-brand-red" />,
     title: "Showroom Finish",
     description:
-      "Every vehicle we detail leaves a lasting impression—restored to a condition that often looks better than the day you bought it. We don't just clean cars; we bring them back to life.",
+      "Every vehicle we detail leaves in a condition that often looks better than the day you bought it. We don't just clean cars; we bring them back to life.",
   },
 ]
 

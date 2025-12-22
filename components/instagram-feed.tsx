@@ -87,6 +87,7 @@ export default function InstagramFeed() {
   const [posts, setPosts] = useState(mockInstagramPosts)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+  const [imageLoading, setImageLoading] = useState<{ [key: string]: boolean }>({})
 
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" })
@@ -180,18 +181,27 @@ export default function InstagramFeed() {
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            {posts.map((post) => (
+            {posts.map((post, index) => (
               <motion.div
                 key={post.id}
                 variants={itemVariants}
                 className="bg-white rounded-xl overflow-hidden shadow-xl border border-gray-100"
               >
-                <div className="relative h-80">
+                <div className="relative h-80 bg-slate-100">
+                  {imageLoading[post.id] !== false && (
+                    <div className="absolute inset-0 bg-slate-200 animate-pulse z-10" />
+                  )}
                   <Image
                     src={post.media_url || "/placeholder.svg"}
                     alt="Signature Auto Detailing Instagram post"
                     fill
-                    className="object-cover"
+                    className={`object-cover transition-opacity duration-500 ${
+                      imageLoading[post.id] === false ? "opacity-100" : "opacity-0"
+                    }`}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCwABmQAAA//9k="
+                    priority={index < 3}
+                    onLoad={() => setImageLoading((prev) => ({ ...prev, [post.id]: false }))}
                   />
                 </div>
                 <div className="p-4">

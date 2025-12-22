@@ -128,7 +128,7 @@ export default function Hero() {
           />
         </video>
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/40 font-sans"></div>
       </div>
 
       <div className="container mx-auto px-4 z-20" ref={ref}>
@@ -190,7 +190,7 @@ export default function Hero() {
 
         {/* Desktop view */}
         {!isMobile && (
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 items-center gap-8 text-left">
             <motion.div
               initial="hidden"
               animate={controls}
@@ -203,9 +203,9 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <span className="block text-white drop-shadow-lg">Elevate Your</span>
+                <span className="block text-white drop-shadow-lg">Premium Detailing       </span>
                 <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
-                  Driving Experience
+                  {"In Omaha Nebraska"} 
                 </span>
               </motion.h1>
               <motion.p
