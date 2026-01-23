@@ -134,21 +134,21 @@ export default function Hero() {
       <div className="container mx-auto px-4 z-20" ref={ref}>
         {/* Mobile view */}
         {isMobile && (
-          <div className="grid gap-8 items-center relative z-20">
+          <div className="grid gap-6 items-center relative z-20 px-2">
             <motion.div initial="hidden" animate={controls} variants={variants} className="text-center relative z-20">
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+                className="text-3xl sm:text-4xl font-bold mb-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <span className="block text-white drop-shadow-lg">Elevate Your</span>
+                <span className="block text-white drop-shadow-lg">Premium Detailing</span>
                 <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400 bg-clip-text text-transparent drop-shadow-lg">
-                  Driving Experience
+                  In Omaha Nebraska
                 </span>
               </motion.h1>
               <motion.p
-                className="text-xl md:text-2xl mb-4 text-white drop-shadow-lg max-w-xl mx-auto"
+                className="text-base sm:text-lg mb-3 text-white drop-shadow-lg max-w-sm mx-auto leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -157,7 +157,7 @@ export default function Hero() {
                 attention to detail.
               </motion.p>
               <motion.p
-                className="text-lg md:text-xl mb-8 text-blue-300 font-semibold max-w-xl mx-auto drop-shadow-lg"
+                className="text-base sm:text-lg mb-6 text-blue-300 font-semibold max-w-sm mx-auto drop-shadow-lg"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
@@ -165,20 +165,20 @@ export default function Hero() {
                 Perfection is our Signature
               </motion.p>
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center"
+                className="flex flex-col gap-3 justify-center items-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link href="/booking" className="btn btn-primary">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full max-w-xs">
+                  <Link href="/booking" className="btn btn-primary w-full">
                     Book Now
                   </Link>
                 </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full max-w-xs">
                   <Link
                     href="/services"
-                    className="btn btn-outline bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20"
+                    className="btn btn-outline bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 w-full"
                   >
                     Our Services
                   </Link>

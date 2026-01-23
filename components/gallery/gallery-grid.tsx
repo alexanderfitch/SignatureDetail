@@ -318,8 +318,8 @@ export default function GalleryGrid() {
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4">
-                    <h3 className="text-lg font-bold">{image.title}</h3>
-                    <p className="text-sm text-slate-600">{image.description.substring(0, 60)}...</p>
+                    <h3 className="text-lg font-bold text-blue-300">{image.title}</h3>
+                    <p className="text-sm text-blue-200">{image.description.substring(0, 60)}...</p>
                   </div>
                 </div>
               </div>

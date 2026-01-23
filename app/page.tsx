@@ -18,8 +18,8 @@ export default function Home() {
     <div>
       <LocalBusinessSchema />
       <Hero />
-      <ValueProps />
       <ServicesPreview />
+      <ValueProps />
       <Testimonials />
       <LocationMap />
       <CTASection />

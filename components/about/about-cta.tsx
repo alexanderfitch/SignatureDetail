@@ -17,12 +17,10 @@ export default function AboutCTA() {
           transition={{ duration: 0.7 }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-secondary">
             Ready to Experience the Best in Auto Detailing?
           </h2>
-          <p className="text-xl text-white mb-8">
-            Contact us today to schedule your appointment or learn more about our services.
-          </p>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/booking" className="btn btn-primary text-lg px-8 py-4">
               Book Your Appointment

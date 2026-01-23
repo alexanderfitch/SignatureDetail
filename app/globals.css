@@ -75,8 +75,9 @@
 }
 
 @theme inline {
-  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
-  --font-sans: 'Montserrat', 'Montserrat Fallback';
+  /* Unified font system: Outfit for everything - clean, modern, cohesive */
+  --font-sans: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-outfit), system-ui, -apple-system, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -127,6 +128,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Improved text rendering for better readability */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }
 
@@ -156,31 +161,73 @@ body {
 }
 
 @layer base {
+  /* Modern heading styles with Outfit font */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    /* Using CSS variable directly instead of @apply to fix font-sora error */
-    font-family: var(--font-inter);
+    font-family: var(--font-outfit);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+    @apply text-4xl md:text-5xl lg:text-6xl;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl font-bold;
+    @apply text-3xl md:text-4xl lg:text-5xl;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl font-semibold;
+    @apply text-2xl md:text-3xl;
+    font-weight: 600;
   }
 
+  h4 {
+    @apply text-xl md:text-2xl;
+    font-weight: 600;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+    font-weight: 600;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
+    font-weight: 600;
+  }
+
+  /* Body text with Outfit font for cohesive modern look */
   p {
-    /* Using CSS variable directly for consistency */
-    font-family: var(--font-inter);
+    font-family: var(--font-outfit);
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  /* Improved list styling */
+  ul,
+  ol {
+    font-family: var(--font-outfit);
+    line-height: 1.7;
+  }
+
+  /* Better link styling */
+  a {
+    font-family: var(--font-outfit);
+    transition: color 0.2s ease;
+  }
+
+  /* Label and small text */
+  label,
+  small {
+    font-family: var(--font-outfit);
+    letter-spacing: -0.01em;
   }
 
   .container {
@@ -234,6 +281,10 @@ body {
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center rounded-full px-6 py-3 font-medium transition-all duration-300;
+    /* Consistent button typography */
+    font-family: var(--font-outfit);
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 
   .btn-primary {
@@ -267,17 +318,52 @@ body {
 
   .card {
     @apply bg-white rounded-2xl p-6 shadow-lg;
-    border: 2px solid transparent; /* Added transparent border that becomes dark blue on hover */
+    border: 2px solid transparent;
     transition: all 0.3s ease;
   }
   .card:hover {
     @apply shadow-xl;
-    border-color: #0b4a8c; /* Dark blue border appears on hover */
+    border-color: #0b4a8c;
     transform: translateY(-4px);
+  }
+
+  /* Card styling for consistency - all Outfit */
+  .card h3,
+  .card h4 {
+    font-family: var(--font-outfit);
+    margin-bottom: 0.75rem;
+  }
+
+  .card p {
+    font-family: var(--font-outfit);
+    line-height: 1.6;
+    font-weight: 400;
   }
 
   .content-box {
     @apply bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/20;
+  }
+
+  /* Typography utility classes for consistent styling - all Outfit */
+  .text-heading {
+    font-family: var(--font-outfit);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .text-body {
+    font-family: var(--font-outfit);
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+  }
+
+  .text-display {
+    font-family: var(--font-outfit);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
   }
 }
 

@@ -8,12 +8,20 @@ import { Analytics } from "@/components/analytics"
 import { Suspense } from "react"
 import IOSInstallPopup from "@/components/ios-install-popup"
 import ScrollToTop from "@/components/scroll-to-top"
-import { Inter, Roboto_Slab as V0_Font_Roboto_Slab } from 'next/font/google'
+import { Inter, Outfit } from "next/font/google"
 
-// Initialize fonts
-const _robotoSlab = V0_Font_Roboto_Slab({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
+// Initialize modern fonts
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+})
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Signature Auto Detailing | Premium Mobile Auto Detailing Services | Perfection is our Signature",
@@ -57,7 +65,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans text-white`}>
+      <body className={`${inter.variable} ${outfit.variable} font-sans text-white antialiased`}>
         <ScrollToTop />
         <Header />
         <main>{children}</main>
