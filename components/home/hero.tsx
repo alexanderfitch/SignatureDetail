@@ -215,7 +215,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 Premium mobile auto detailing services in Omaha. We bring out the best in your vehicle with meticulous
-                attention to detail.
+                attention to detail. 
               </motion.p>
               <motion.p
                 className="text-lg md:text-xl mb-8 text-blue-300 font-semibold max-w-xl drop-shadow-lg"
