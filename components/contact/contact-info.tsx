@@ -62,7 +62,7 @@ export default function ContactInfo() {
             </svg>
           </a>
           <a
-            href="https://instagram.com/detailomaha"
+            href="https://www.instagram.com/signatureautodetailingllc"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"

@@ -2,9 +2,16 @@ export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "AutoDetailing",
-    name: "Signature Auto Detailing",
-    image: "https://detailomaha.com/images/logo.png",
-    url: "https://detailomaha.com",
+    "@id": "https://www.signatureautodetailingllc.com/#business",
+    name: "Signature Auto Detailing LLC",
+    image: "https://www.signatureautodetailingllc.com/images/bluelogoimage.png",
+    url: "https://www.signatureautodetailingllc.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Omaha",
+      addressRegion: "NE",
+      addressCountry: "US",
+    },
     telephone: "+14028504546",
     email: "detailomahaneb@gmail.com",
     description:
@@ -19,11 +26,7 @@ export function LocalBusinessSchema() {
       geoRadius: "30mi",
     },
     priceRange: "$100 - $800+",
-    sameAs: [
-      "https://www.facebook.com/detailomaha",
-      "https://www.instagram.com/detailomaha",
-      "https://twitter.com/detailomaha",
-    ],
+    sameAs: ["https://www.instagram.com/signatureautodetailingllc"],
   }
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

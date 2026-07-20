@@ -83,7 +83,7 @@ export default function ContactInfoFull() {
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://instagram.com/detailomaha"
+                  href="https://www.instagram.com/signatureautodetailingllc"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"

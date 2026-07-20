@@ -26,7 +26,7 @@ export default function Footer() {
                 <Facebook size={20} />
               </a>
               <a
-                href="https://instagram.com/detailomaha"
+                href="https://www.instagram.com/signatureautodetailingllc"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

@@ -148,7 +148,7 @@ export default function InstagramFeed() {
           className="flex items-center justify-center mb-12"
         >
           <Link
-            href="https://instagram.com/detailomaha"
+            href="https://www.instagram.com/signatureautodetailingllc"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors"
@@ -166,7 +166,7 @@ export default function InstagramFeed() {
           <div className="text-center py-8">
             <p className="text-slate-600">{error}</p>
             <Link
-              href="https://instagram.com/detailomaha"
+              href="https://www.instagram.com/signatureautodetailingllc"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-brand-red hover:underline mt-4"
@@ -225,7 +225,7 @@ export default function InstagramFeed() {
 
         <div className="text-center mt-12">
           <Link
-            href="https://instagram.com/detailomaha"
+            href="https://www.instagram.com/signatureautodetailingllc"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary"

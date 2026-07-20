@@ -24,14 +24,13 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: "Signature Auto Detailing | Premium Mobile Auto Detailing Services | Perfection is our Signature",
+  metadataBase: new URL("https://www.signatureautodetailingllc.com"),
+  title: "Signature Auto Detailing | Mobile Auto Detailing in Omaha, NE",
   description:
     "Signature Auto Detailing - Perfection is our Signature. Mobile auto detailing services in Omaha. Professional interior and exterior detailing, paint correction, ceramic coating, headlight restoration, and more. We come to you!",
-  keywords:
-    "car detailing Omaha, mobile auto detailing, interior detailing, exterior detailing, paint correction, ceramic coating, headlight restoration, clay bar treatment, Signature Auto Detailing, Omaha",
   robots: "index, follow",
   alternates: {
-    canonical: "https://detailomaha.com",
+    canonical: "./",
   },
   icons: {
     icon: [
@@ -41,17 +40,17 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Signature Auto Detailing | Premium Mobile Auto Detailing Services | Perfection is our Signature",
+    title: "Signature Auto Detailing | Mobile Auto Detailing in Omaha, NE",
     description:
       "Signature Auto Detailing - Perfection is our Signature. Mobile auto detailing services in Omaha. Professional interior and exterior detailing, paint correction, ceramic coating, headlight restoration, and more. We come to you!",
-    url: "https://detailomaha.com",
+    url: "https://www.signatureautodetailingllc.com",
     siteName: "Signature Auto Detailing",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Signature Auto Detailing | Premium Mobile Auto Detailing Services | Perfection is our Signature",
+    title: "Signature Auto Detailing | Mobile Auto Detailing in Omaha, NE",
     description:
       "Signature Auto Detailing - Perfection is our Signature. Mobile auto detailing services in Omaha. Professional interior and exterior detailing, paint correction, ceramic coating, headlight restoration, and more. We come to you!",
   },

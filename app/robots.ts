@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/private/", "/admin/"],
     },
-    sitemap: "https://omahadetailing.com/sitemap.xml",
+    sitemap: "https://www.signatureautodetailingllc.com/sitemap.xml",
   }
 }
