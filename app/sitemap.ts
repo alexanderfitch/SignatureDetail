@@ -1,9 +1,18 @@
 import type { MetadataRoute } from "next"
+import { servicePages } from "@/lib/service-pages"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.signatureautodetailingllc.com"
 
+  const serviceUrls: MetadataRoute.Sitemap = servicePages.map((page) => ({
+    url: `${baseUrl}/services/${page.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }))
+
   return [
+    ...serviceUrls,
     {
       url: baseUrl,
       lastModified: new Date(),

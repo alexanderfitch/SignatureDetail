@@ -47,15 +47,6 @@ const nextConfig = {
       },
     ]
   },
-  async redirects() {
-    return [
-      {
-        source: '/services/:slug',
-        destination: '/services#:slug',
-        permanent: true,
-      },
-    ]
-  },
 }
 
 export default nextConfig

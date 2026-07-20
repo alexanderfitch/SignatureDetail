@@ -2,7 +2,14 @@
 
 import { useRef, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { motion, useInView } from "framer-motion"
+
+const dedicatedPages: { [id: string]: string } = {
+  "interior-detailing": "/services/interior-detailing-omaha",
+  "paint-correction": "/services/paint-correction-omaha",
+  "ceramic-coating": "/services/ceramic-coating-omaha",
+}
 import { Shield, Droplet, Car, PenTool as Tool, Sparkles, Zap } from "lucide-react"
 
 const services = [
@@ -190,6 +197,14 @@ export default function ServicesList() {
                     <p className="text-xl font-semibold text-white/90 mt-1">{service.price}</p>
                   </div>
                 </div>
+                {dedicatedPages[service.id] && (
+                  <Link
+                    href={dedicatedPages[service.id]}
+                    className="inline-block mt-1 text-white/90 underline underline-offset-4 hover:text-white font-medium"
+                  >
+                    Learn more about {service.title.toLowerCase()} in Omaha →
+                  </Link>
+                )}
               </div>
 
               {/* Service Content */}
