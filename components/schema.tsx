@@ -26,7 +26,11 @@ export function LocalBusinessSchema() {
       geoRadius: "30mi",
     },
     priceRange: "$100 - $800+",
-    sameAs: ["https://www.instagram.com/signatureautodetailingllc"],
+    sameAs: [
+      "https://www.instagram.com/signatureautodetailingllc",
+      "https://share.google/zHdOUzA9ybUEsbYeK",
+      "https://www.google.com/search?kgmid=/g/11w8lbnqqd",
+    ],
   }
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />

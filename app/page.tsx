@@ -8,9 +8,9 @@ import CTASection from "@/components/home/cta-section"
 import { LocalBusinessSchema } from "@/components/schema"
 
 export const metadata: Metadata = {
-  title: "Premium Auto Detailing in Omaha | Professional Car Detailing Services",
+  title: "Premium Auto Detailing in Omaha | 5.0★ on Google | Signature Auto Detailing",
   description:
-    "Luxury car detailing services in Omaha. Professional ceramic coating, interior detailing, and paint correction. Book your appointment today!",
+    "5.0-star rated mobile car detailing in Omaha. Professional ceramic coating, interior detailing, and paint correction — we come to you. Book your appointment today!",
 }
 
 export default function Home() {
