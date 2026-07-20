@@ -103,13 +103,11 @@ export default function Hero() {
           muted
           playsInline
           preload="auto"
+          poster="/videos/hero-poster.webp"
           // @ts-ignore - webkit-playsinline is not in types but needed for iOS
           webkit-playsinline="true"
         >
-          <source
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0135-auYtcrlHi084TDCmvfLTCadcMmvc23.mov"
-            type="video/mp4"
-          />
+          <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
         <video
           ref={video2Ref}
@@ -118,14 +116,11 @@ export default function Hero() {
           } ${isTransitioning && activeVideo === 2 ? "blur-sm" : "blur-0"}`}
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           // @ts-ignore - webkit-playsinline is not in types but needed for iOS
           webkit-playsinline="true"
         >
-          <source
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0135-auYtcrlHi084TDCmvfLTCadcMmvc23.mov"
-            type="video/mp4"
-          />
+          <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/40 font-sans"></div>
