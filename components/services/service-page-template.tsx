@@ -4,14 +4,24 @@ import type { ServicePageData } from "@/lib/service-pages"
 
 const SITE_URL = "https://www.signatureautodetailingllc.com"
 
-export default function ServicePageTemplate({ page }: { page: ServicePageData }) {
+export default function ServicePageTemplate({
+  page,
+  basePath = "/services",
+  breadcrumbLabel = "Services",
+  areaName = "Omaha",
+}: {
+  page: ServicePageData
+  basePath?: string
+  breadcrumbLabel?: string
+  areaName?: string
+}) {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: page.h1,
     description: page.metaDescription,
-    url: `${SITE_URL}/services/${page.slug}`,
-    areaServed: { "@type": "City", name: "Omaha", containedInPlace: { "@type": "State", name: "Nebraska" } },
+    url: `${SITE_URL}${basePath}/${page.slug}`,
+    areaServed: { "@type": "City", name: areaName, containedInPlace: { "@type": "State", name: "Nebraska" } },
     provider: { "@id": `${SITE_URL}/#business` },
   }
 
@@ -25,14 +35,14 @@ export default function ServicePageTemplate({ page }: { page: ServicePageData })
     })),
   }
 
+  const breadcrumbItems = [{ name: "Home", item: SITE_URL }]
+  if (basePath === "/services") breadcrumbItems.push({ name: breadcrumbLabel, item: `${SITE_URL}/services` })
+  breadcrumbItems.push({ name: page.h1, item: `${SITE_URL}${basePath}/${page.slug}` })
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
-      { "@type": "ListItem", position: 3, name: page.h1, item: `${SITE_URL}/services/${page.slug}` },
-    ],
+    itemListElement: breadcrumbItems.map((item, i) => ({ "@type": "ListItem", position: i + 1, ...item })),
   }
 
   return (

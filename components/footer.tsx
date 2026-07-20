@@ -91,8 +91,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services#interior-detailing" className="text-slate-600 hover:text-brand-blue transition-colors">
-                  Interior Detail ($250+)
+                <Link href="/services/interior-detailing-omaha" className="text-slate-600 hover:text-brand-blue transition-colors">
+                  Interior Detailing ($250+)
                 </Link>
               </li>
               <li>
@@ -101,16 +101,51 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/services#headlight-restoration"
-                  className="text-slate-600 hover:text-brand-blue transition-colors"
-                >
-                  Headlight Restoration ($150)
+                <Link href="/services/ceramic-coating-omaha" className="text-slate-600 hover:text-brand-blue transition-colors">
+                  Ceramic Coating ($800+)
                 </Link>
               </li>
               <li>
-                <Link href="/services#clay-bar-treatment" className="text-slate-600 hover:text-brand-blue transition-colors">
-                  Clay-bar Treatment ($100+)
+                <Link href="/services/paint-correction-omaha" className="text-slate-600 hover:text-brand-blue transition-colors">
+                  Paint Correction ($600+)
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/mobile-detailing-omaha" className="text-slate-600 hover:text-brand-blue transition-colors">
+                  Mobile Detailing
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/fleet-commercial-detailing-omaha" className="text-slate-600 hover:text-brand-blue transition-colors">
+                  Fleet & Commercial
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="text-slate-600 hover:text-brand-blue transition-colors">
+                  Pricing
+                </Link>
+              </li>
+            </ul>
+            <h4 className="text-lg font-semibold mb-4 mt-8 text-slate-800">Service Areas</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/service-areas/papillion" className="text-slate-600 hover:text-brand-blue transition-colors">
+                  Papillion
+                </Link>
+              </li>
+              <li>
+                <Link href="/service-areas/bellevue" className="text-slate-600 hover:text-brand-blue transition-colors">
+                  Bellevue
+                </Link>
+              </li>
+              <li>
+                <Link href="/service-areas/elkhorn" className="text-slate-600 hover:text-brand-blue transition-colors">
+                  Elkhorn
+                </Link>
+              </li>
+              <li>
+                <Link href="/service-areas/gretna" className="text-slate-600 hover:text-brand-blue transition-colors">
+                  Gretna
                 </Link>
               </li>
             </ul>

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { servicePages } from "@/lib/service-pages"
+import { serviceAreas } from "@/lib/service-areas"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.signatureautodetailingllc.com"
@@ -11,8 +12,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
+  const areaUrls: MetadataRoute.Sitemap = serviceAreas.map((page) => ({
+    url: `${baseUrl}/service-areas/${page.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }))
+
   return [
     ...serviceUrls,
+    ...areaUrls,
+    {
+      url: `${baseUrl}/pricing`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     {
       url: baseUrl,
       lastModified: new Date(),
