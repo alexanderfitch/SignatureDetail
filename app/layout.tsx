@@ -5,6 +5,7 @@ import "./globals.css"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Analytics } from "@/components/analytics"
+import { MetaPixel } from "@/components/meta-pixel"
 import { Suspense } from "react"
 import IOSInstallPopup from "@/components/ios-install-popup"
 import ScrollToTop from "@/components/scroll-to-top"
@@ -72,6 +73,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <Analytics />
         </Suspense>
+        <MetaPixel />
         <IOSInstallPopup />
       </body>
     </html>
